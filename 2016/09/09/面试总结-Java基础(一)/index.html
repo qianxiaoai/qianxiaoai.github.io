@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="小爱小世界" />
+
+
+
+<meta name="description" content="我的简书: 面试总结-Java基础(一)
+
+之前学习Java基础的时候做的一些笔记，稍微整理了一下，也方便以后看。不过这里都是一些较为基础的Java知识，后期有时间，会针对里面的泛型，多线程，算法，nio 等模块进行更深入的解析。
+如果有写错的地方，还望指出，一定及时更正。
+
+基础
+1 switch支持的类型：byte, short, int, char, enum,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试总结-Java基础(一)">
+<meta property="og:url" content="http://lovexiaoai.cn/2016/09/09/面试总结-Java基础(一)/index.html">
+<meta property="og:site_name" content="小爱">
+<meta property="og:description" content="我的简书: 面试总结-Java基础(一)
+
+之前学习Java基础的时候做的一些笔记，稍微整理了一下，也方便以后看。不过这里都是一些较为基础的Java知识，后期有时间，会针对里面的泛型，多线程，算法，nio 等模块进行更深入的解析。
+如果有写错的地方，还望指出，一定及时更正。
+
+基础
+1 switch支持的类型：byte, short, int, char, enum,">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975505-36b3596263710c99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975505-4c0280c26dc8f362.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975505-e79c1f6d1d05fffd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975505-5e4feced20d43d03.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-09-09T06:24:28.577Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试总结-Java基础(一)">
+<meta name="twitter:description" content="我的简书: 面试总结-Java基础(一)
+
+之前学习Java基础的时候做的一些笔记，稍微整理了一下，也方便以后看。不过这里都是一些较为基础的Java知识，后期有时间，会针对里面的泛型，多线程，算法，nio 等模块进行更深入的解析。
+如果有写错的地方，还望指出，一定及时更正。
+
+基础
+1 switch支持的类型：byte, short, int, char, enum,">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1975505-36b3596263710c99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="小爱" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>面试总结-Java基础(一) | 小爱</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?4bce5575ff156966acd63607cdef3af2";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">小爱小世界</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">开心就好~</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/3301284230/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/qianxiaoai" title="GitHub"></a>
+                            
+                                <a class="fa 简书" href="http://www.jianshu.com/users/784e25a9d175/latest_articles" title="简书"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-M/">Android M</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-N/">Android N</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FileProvider/">FileProvider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java基础/">java基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/手工/">手工</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/权限/">权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">简简单单，开心就好~</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">小爱小世界</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">小爱小世界</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">开心就好~</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/3301284230/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/qianxiaoai" title="GitHub"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="http://www.jianshu.com/users/784e25a9d175/latest_articles" title="简书"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-面试总结-Java基础(一)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/09/面试总结-Java基础(一)/" class="article-date">
+      <time datetime="2016-09-09T03:46:56.000Z" itemprop="datePublished">2016-09-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      面试总结-Java基础(一)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java基础/">java基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="http://www.jianshu.com/p/f3fdbcaf7e83" target="_blank" rel="external">我的简书: 面试总结-Java基础(一)</a></p>
+<ul>
+<li>之前学习Java基础的时候做的一些笔记，稍微整理了一下，也方便以后看。不过这里都是一些较为基础的Java知识，后期有时间，会针对里面的泛型，多线程，算法，nio 等模块进行更深入的解析。</li>
+<li>如果有写错的地方，还望指出，一定及时更正。</li>
+</ul>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul>
+<li>1 switch支持的类型：byte, short, int, char, enum,</li>
+</ul>
+<a id="more"></a>
+<pre><code>注意：不支持long,double，JDK7之后，开始支持String。
+
+    //简单示例
+    public class MyDemo {
+        public static void main(String... args) {
+            Demo demo = Demo.A;
+            switch (demo) {
+                case A:
+                    break;
+                case B:
+                    break;
+            }
+        }
+        enum Demo {
+            A,
+            B,
+            C
+        }
+    }
+</code></pre><ul>
+<li><p>2 if和switch的区别：</p>
+<p>  if ：1.对具体的值进行判断  2.对区间判断  3.对运算结果是boolean类型的表达式进行判断</p>
+<p>  switch :1.对具体的值进行判断；2.值的个数通常是固定的。</p>
+<p>  对于几个固定值的判断，建议使用switch语句，因为switch语句会将具体的答案加载进内存，相对高效一点。</p>
+</li>
+<li>重载和重写的区别<ul>
+<li>重载：允许存在一个以上的同名函数，只要它们的参数类型不同即可。</li>
+<li>重写：当子类继承父类，沿袭了父类的功能到子类中，子类虽具备该功能，但功能内容不一致，这是使用覆盖特性，保留父类的功能定义，并重写功能内容。</li>
+</ul>
+</li>
+<li><p>单例模式 </p>
+<ul>
+<li><p>饿汉式</p>
+<pre><code>private static Single s = new Single ( ) ;
+        private Single ( ) { }  
+        public static Single getInstance () 
+        {
+        return s ;
+        }
+</code></pre></li>
+<li><p>懒汉式</p>
+<pre><code>class Single {
+    public static Single getInstance (){
+        if ( s== null ){
+            synchronized (Single.class){//锁不读可以提高效率
+            if ( s== null ){
+                s = new Single () ;
+             }
+         }
+        return s ;
+    }
+}
+</code></pre></li>
+</ul>
+</li>
+<li><p>特殊关键字：final</p>
+<pre><code>1.    可以修饰类、函数、变量；
+2.    被final修饰的类不可以被继承。为了避免被继承，被子类复写。final class Demo { }
+3.    被final修饰的方法不可以被复写。final void show () { }
+4.    被final 修饰的变量是一个常量，只能赋值一次。
+5.    内部类定义在类中的局部位置上时，只能访问该局部被final修饰的局部变量。
+</code></pre></li>
+<li><p>异常：</p>
+<pre><code>try{}catch(){}finally{}
+1.在catch中return(),finally{}会不会执行？
+答：会，会在return之前执行。
+2.finally()在什么情况下不会执行
+答：只有一种情况不会执行，当执行到System.exit(0)时，finally不会执行。
+</code></pre></li>
+<li><p>常见Runtime异常：</p>
+<pre><code>ArithmeticException, ClassCastException, IllegalArgumentException, 
+IndexOutOfBoundsException, NullPointerException, 
+</code></pre></li>
+<li>访问权限</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1975505-36b3596263710c99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="权限.png"></p>
+<h2 id="Java静态代码块、构造函数、构造代码块"><a href="#Java静态代码块、构造函数、构造代码块" class="headerlink" title="Java静态代码块、构造函数、构造代码块"></a>Java静态代码块、构造函数、构造代码块</h2><ul>
+<li><p>先看下面一段代码，运行Test，会打印什么？</p>
+<pre><code>package test;
+public class Test {
+    public static void main(String... args) {
+        TestA a;
+        a = new TestA();
+        a = new TestA();
+        TestA aa = new TestA();
+    }
+}
+class TestA {
+    {
+        System.out.println(&quot;TestA code create&quot;);
+    }
+
+    private TestB b = new TestB();
+    private static TestC c = new TestC();
+
+    public TestA() {
+        System.out.println(&quot;TestA create&quot;);
+    }
+
+    static {
+        System.out.println(&quot;TestA static create&quot;);
+    }
+}
+class TestB {
+    public TestB() {
+        System.out.println(&quot;TestB create&quot;);
+    }
+}
+class TestC {
+    public TestC() {
+        System.out.println(&quot;TestC create&quot;);
+    }
+}
+</code></pre></li>
+</ul>
+<p>打印结果：  </p>
+<pre><code>TestC create
+TestA static create
+TestA code create
+TestB create
+TestA create
+TestA code create
+TestB create
+TestA create
+TestA code create
+TestB create
+TestA create
+</code></pre><ul>
+<li><p>static特点：</p>
+<pre><code>1.    随着类的加载而加载（随着类的消失而消失，生命周期最长）
+2.    优先于对象存在
+3.    被所有对象所共享
+4.    可以直接被类所调用
+5.    static是一个修饰符，用于修饰成员
+</code></pre></li>
+<li><p>构造代码块 </p>
+<pre><code>作用：给对象进行初始化，对象一建立就运行，而且优先于构造函数执行。
+
+和构造函数的区别：
+构造代码块是给所有对象进行统一初始化；而构造函数是给对应的对象初始化
+构造代码块中定义的是不同对象共性的初始化内容
+</code></pre></li>
+<li><p>静态代码块</p>
+<pre><code>static
+{
+    静态代码块中的执行语句；
+}
+特点：随着类的加载而执行，只执行一次（再new一个对象也不会执行，类只加载一次），
+如果定义在有主函数的类中，则优先于主函数执行。用于给类进行初始化。
+有些类不用创建对象，无法用构造函数初始化，就通过静态代码块初始化。
+
+执行顺序：静态代码块先执行，如果有对象，构造代码块先执行，然后是构造函数。
+如果没有对象，则构造代码块和构造函数都不会执行。
+</code></pre></li>
+</ul>
+<h2 id="Java-封装、继承、多态"><a href="#Java-封装、继承、多态" class="headerlink" title="Java-封装、继承、多态"></a>Java-封装、继承、多态</h2><ul>
+<li><p>抽象类的特点：</p>
+<pre><code>1.    抽象方法一定在抽象类中。
+2.    抽象方法和抽象类都必须被abstract关键字修饰。
+3.    抽象类不可以用new创建对象，因为调用抽象方法没有意义。
+4.    抽象类中的抽象方法要被使用，必须由子类复写所有的抽象方法后，建立子类对象调用。如果子类只覆盖了部分抽象方法，那么该子类还是一个抽象类。强迫子类复写，强迫子类做一些事。
+5.    抽象类中可以不定义抽象方法，如果不定义抽象方法，那么抽象类的功能就是为了不让该类建立对象。
+</code></pre></li>
+<li><p>抽象关键字不可以和哪些关键字共存？</p>
+<pre><code>答：（1）private不能：抽象方法就是给子类覆盖的，私有了就不能覆盖了。
+    （2）static不能：static可以直接用类名调用，而调用抽象方法没有意义。
+    （3）final 不能：final修饰的方法不可以被复写，修饰的类不可以被继承。与abstract冲突。
+</code></pre></li>
+</ul>
+<ul>
+<li><p>接口的特点</p>
+<pre><code>●    接口是对外暴露的规则。
+●    接口是程序的功能扩展。
+●    接口可以多实现。
+●    类与接口直接是实现关系，而且类可以继承一个类的同时实现多个接口。
+●    接口与接口之间可以有继承关系，可以多继承。
+     因为接口没有方法体，不会存在两个父类出现同一个方法但是方法体不同的情况，
+     不会引起冲突，如下：
+
+public class Test implements d{
+    public static void main(String... args) {
+    }
+
+    @Override
+    public void as() {
+    }
+}
+
+interface d extends e,f {
+}
+interface f{
+    void as();
+}
+interface e{
+    void as();
+}
+</code></pre></li>
+</ul>
+<ul>
+<li><p>接口和抽象类的异同点：</p>
+<pre><code> 相同点：都是不断向上抽取而来的。不可以被实例化
+
+不同点：
+ 1.    抽象类需要被继承，而且只能单继承；接口需要被实现，而且可以多实现
+ 2.    抽象类中可以定义抽象方法和非抽象方法，子类继承后，可以直接使用非抽象方法；
+       接口只能定义抽象方法，必须有子类实现。
+ 3.    抽象类的继承，是is a关系，在定义该体系的基本共性内容；
+       接口的实现是like a 关系，在定义体系额外功能。
+</code></pre></li>
+</ul>
+<ul>
+<li><p>继承</p>
+<pre><code>子类的实例化过程：
+结论：子类的所有的构造函数，默认都会访问父类中空参数构造函数，因为子类中每一个构造函数内的第一行都有一句隐式的super() ;
+当父类中没有空参数的构造函数时，子类必须手动通过super或者this语句形式来指定要访问的构造函数。
+当然：子类的构造函数第一行也可以手动指定this语句来访问本类中的构造函数，
+子类中至少会有一个构造函数会访问到父类中的构造函数。
+</code></pre></li>
+<li><p>对象的初始化过程，见下图：</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1975505-4c0280c26dc8f362.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="对象初始化过程.png"></p>
+<p>打印结果：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1975505-e79c1f6d1d05fffd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="打印结果.png"></p>
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><ul>
+<li><p>关于线程这块，后期有时间会写一个完整的深入的文章，这里写的都是比较简单基础的线程的一些知识。</p>
+</li>
+<li><p>创建线程的两种方式：</p>
+</li>
+</ul>
+<pre><code>1 继承Thread类。
+    ①.定义类继承Thread；
+    ②.复写父类中的方法；目的：将自定义代码存储在run方法中，让线程运行。
+    ③.调用线程的start方法，该方法有两个作用：启动线程，调用run方法
+2 实现Runnable接口
+    1.    定义类实现Runnable接口。
+    2.    覆盖Runnable接口中的run方法。
+    3.    通过Thread类建立线程对象。
+    4.    将Runnable接口的子类对象作为实际参数传递给Thread类的构造函数。
+    5.    调用Thread类的start方法开启线程并调用Runnable接口子类的run方法。
+</code></pre><ul>
+<li><p>实现方式和继承方式有什么区别？</p>
+<pre><code>1.    实现方式相比继承方式的好处：
+避免了单继承的局限性（单继承只能继承一个父类）。在定义线程时，建议使用实现方式。
+2.存放代码的位置不一样：
+继承Thread：线程代码存放Thread子类的run方法中
+实现Runnable，线程代码存在接口的子类的run方法。
+</code></pre></li>
+<li><p>实现Runnable接口的好处：</p>
+<pre><code>1，将线程的任务从线程的子类中分离出来，进行了单独的封装。
+按照面向对象的思想将任务的封装成对象。
+
+2，避免了java单继承的局限性。
+</code></pre></li>
+</ul>
+<ul>
+<li><p>同步的两种表现形式：</p>
+<ul>
+<li><p>1 同步代码块</p>
+<p>  synchronized(对象){<br>  需要被同步的代码；<br>}</p>
+</li>
+<li><p>2 同步函数。</p>
+<p>  将synchronized关键字作为修饰符放在函数上。</p>
+<p>  public synchronized void add()</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>* 同步函数用的是哪一个锁：函数需要被对象调用，那么该函数都有一个所属对象引用，就是this，所以同步函数使用的锁是this（对象）
+
+* JDK1.5中提供了多线程升级解决方案，将同步synchronized替换成实现Lock操作，将Object中的wait，notify，notifyAll，替换成了Condition对象的await(),signal(),signalAll()，该对象可以通过Lock锁进行获取。
+</code></pre><ul>
+<li><p>停止线程</p>
+<pre><code>原理：run方法结束
+1.    使用intrrupt()方法。该方法是结束线程的冻结状态，使线程回到运行状态中来。
+当线程处于冻结状态，就不会结束读取到标记，那么线程就不会结束。
+当没有指定的方式让冻结的线程恢复到运行状态时，这时需要对冻结进行清除。
+强制让线程恢复到运行状态中来，这样就可以操作标记让线程结束。
+
+2.    定义循环结束标记。线程运行代码一般都是循环，只要控制了循环即可。
+</code></pre></li>
+<li><p>线程常见方法</p>
+<pre><code>1 setDeamon() 守护线程：setDaemon(ture) ;
+  也称后台线程，当前台线程执行时后台线程也在执行，但是当前台线程全部执行完关闭时，
+  后台线程也会跟着自动关闭，jvm退出。
+  ！！该方法必须在启动线程前调用。
+ 2 join()等待该线程终止：一般用于临时加入线程。
+  当A线程执行到了B线程的.join()方法时，A就会等待，等B线程都执行完，A才会执行
+3 yield()方法：释放执行权，让其他线程运行。
+  暂停当前正在执行的线程对象，并执行其他线程。
+</code></pre></li>
+<li><p>一个死锁的demo</p>
+<pre><code>class Test implements Runnable {
+    private boolean flag;
+    Test(boolean flag) {
+        this.flag = flag;
+    }
+    public void run() {
+
+        if (flag) {
+            while (true)
+                synchronized (MyLock.locka) {
+                    System.out.println(Thread.currentThread().getName()
+                            + &quot;..if   locka....&quot;);
+                    synchronized (MyLock.lockb) {
+                        System.out.println(Thread.currentThread().getName()
+                                + &quot;..if   lockb....&quot;);
+                    }
+                }
+        } else {
+            while (true)
+                synchronized (MyLock.lockb) {
+                    System.out.println(Thread.currentThread().getName()
+                            + &quot;..else  lockb....&quot;);
+                    synchronized (MyLock.locka) {
+                        System.out.println(Thread.currentThread().getName()
+                                + &quot;..else   locka....&quot;);
+                    }
+                }
+        }
+    }
+}
+
+class MyLock {
+    public static final Object locka = new Object();
+    public static final Object lockb = new Object();
+}
+class DeadLockTest {
+    public static void main(String[] args) {
+        Test a = new Test(true);
+        Test b = new Test(false);
+        Thread t1 = new Thread(a);
+        Thread t2 = new Thread(b);
+        t1.start();
+        t2.start();
+    }
+}
+</code></pre></li>
+</ul>
+<ul>
+<li><p>wait和sleep的区别</p>
+<pre><code>1. wait 可以指定时间也可以不指定。sleep必须指定时间。
+2. 在同步中，对CPU的执行权和锁的处理不同：
+    wait：释放执行权，释放锁
+    sleep：释放执行权，不释放锁
+</code></pre></li>
+</ul>
+<ul>
+<li><p>StringBuffer和StringBuilder的区别</p>
+<p>  StringBuffer是线程同步（安全）。如果是单线程，效率就比较低<br>  StringBuilder是线程不同步。</p>
+</li>
+</ul>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p><img src="http://upload-images.jianshu.io/upload_images/1975505-5e4feced20d43d03.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Java集合关系图.png"></p>
+<h3 id="Collection：单列集合"><a href="#Collection：单列集合" class="headerlink" title="Collection：单列集合"></a>Collection：单列集合</h3><ul>
+<li><p>List 和 set</p>
+<pre><code>List：元素是有序的，元素可以重复，因为该集合体系有索引
+Set：元素是无序的，元素不可以重复（存入和取出的顺序不一定一致）。
+List特有方法：凡是可以操作角标的方法都是该体系特有的方法
+</code></pre></li>
+</ul>
+<ul>
+<li><p>List中常见的三个子类</p>
+<pre><code>1. ArrayList ：底层的数据使用的是数组结构。
+特点：查询速度很快，但是增删稍慢。线程不同步，效率高 。
+可变长度数组，默认容量为10的空列表，如果超过了，则50%的增加
+2. LinkedList ：底层的数据使用的是链表数据结构。
+特点：增删数度很快，但是查询稍慢。
+3. Vector：底层使用的是数组结构。枚举是Vector特有的取出方式
+是同步的，效率较低，被ArrayList替代。最早出现的。
+默认容量为10的空列表，如果超过了，则100%的增加.
+</code></pre></li>
+<li><p>LinkedList</p>
+<pre><code>JDK1.6版本出现的:pollFirst()，pollLast()，peekFirst() ，peekLast()，offerFirst()，offerLast()
+(如果链表为空，返回null )。
+分别替代了remove 和 get 和add (如果链表为空，则抛出异常)。
+</code></pre></li>
+</ul>
+<ul>
+<li><p>set常见子类</p>
+<pre><code>1. HashSet：底层数据结构是哈希表。
+HashSet是如何保证元素的唯一性的：
+是通过元素的两个方法，hashCode和equals来完成，如果元素的hashCode值相同，
+才会判断equals是否为true，如果元素的hashCode值不同，不会调用equals 。
+开发时描述事物，需要往集合里面存时，一般都要复写hashCode和equals。
+</code></pre></li>
+<li><p>TreeSet底层的数据结构：二叉树</p>
+<pre><code>保证数据元素唯一性的依据compareTo方法return 0，为0则表示是相同元素 ;
+
+排序的两种方式：
+TreeSet排序的第一种方式：
+让元素自身具备比较性。元素需要实现Comparable接口，覆盖compareTo方法。这种方式也称为元素的自然顺序，或者叫做默认顺序。
+
+TreeSet的第二种排序方式：
+当元素自身不具备比较性时，或具备的比较性不是所需要的，这是就需要让集合自身具备比较性。
+定义一个比较器，将比较器对象作为参数传递给TreeSet集合的构造函数。
+定义一个类，实现Comparator接口，覆盖compare方法
+
+当两种排序都存在时，以比较器为主。
+</code></pre></li>
+</ul>
+<ul>
+<li><p>泛型</p>
+<pre><code>泛型技术是给编译器使用的技术,用于编译时期。确保了类型的安全。
+
+运行时，会将泛型去掉，生成的class文件中是不带泛型的,这个称为泛型的擦除。
+为什么擦除呢？因为为了兼容运行的类加载器。
+泛型的补偿：在类加载器原有基础上，编写一个补偿程序。在运行时，通过反射，
+获取元素的类型进行转换动作。不用使用者在强制转换了。
+</code></pre></li>
+</ul>
+<h3 id="Map：双列集合"><a href="#Map：双列集合" class="headerlink" title="Map：双列集合"></a>Map：双列集合</h3><ul>
+<li><p>常见子类</p>
+<pre><code>Hashtable：底层是哈希表数据结构，不可以存入null键null值，该集合是线程同步的。jdk1.0 ,效率低 。
+HashMap：底层是哈希表数据结构，并允许使用null键null值，该集合不是同步的，jdk1.2 ,效率高。
+TreeMap ：底层是二叉树数据结构，线程不同步，可以给map集合中的键进行排序 。
+Map 和 Set很像 ：其实，Set底层使用了Map集合 。
+</code></pre></li>
+<li><p>map集合的两种取出方式：</p>
+<pre><code>1.Set&lt;K&gt; KeySet：
+将Map中所有的Key存到了Set集合中，因为Set集合具备迭代器。
+所有可以迭代方式取出所有的键，再根据get方法，获取每一个键对应的值
+Map集合的取出原理：将Map集合转成Set集合，再通过迭代器取出
+
+2.Set&lt;Map.Entry&lt;K,V&gt;&gt; 
+entrySet：将Map集合中的映射关系存入到了Set集合中，而这个关系的数据类型就是：Map.Entry。
+Map.Entry ：其实Entry也是一个接口，它是Map接口中的一个内部接口。
+先有Map，才有映射关系，所有Entry类定义在Map内部
+</code></pre></li>
+<li><p>Math类：</p>
+<pre><code>double d = Math.ceil(12.56);// 13.0 。ceil返回大于指定整数的最小整数
+double d1 =Math.floor(12.34);//12.0 。floor返回小于指定数据的最大整数
+long l = Math.round(12.64);//四舍五入
+double d2 = Math.pow(2,3);//幂运算 ：2^3 = 8
+</code></pre></li>
+</ul>
+<h2 id="io"><a href="#io" class="headerlink" title="io"></a>io</h2><ul>
+<li><p>字节流：InputStream（读）  OutputStream（写）</p>
+</li>
+<li><p>RandomAccessFile(断点下载会用到的类)：</p>
+<p>  随机访问文件，自身具备读写的方法。<br>  通过skipBytes(int x),seek(int x)来达到随机访问。</p>
+<p>  seek(int x)：调整对象中指针，指针跳转，可以实现对数据指定位置的读取和写入。</p>
+</li>
+<li><p>IO流体系：</p>
+<pre><code>字符流：
+Reader
+    |--BufferedReader:
+        |--LineNumberReader
+    |--CharArrayReader
+    |--StringReader
+    |--InputStreamReaer
+        |--FileReader
+
+Writer
+    |--BufferedWriter
+    |--CharArrayWriter
+    |--StringWriter
+    |--OutputStreamWriter
+        |--FileWriter
+    |--PrintWriter
+
+字节流：
+InputStream
+    |--FileInputStream:
+    |--FilterInputStream
+        |--BufferedInputStream
+        |--DataInputStream
+    |--ByteArrayInputStream
+    |--ObjectInputStream
+    |--SequenceInputStream
+    |--PipedInputStream
+
+OutputStream
+    |--FileOutputStream
+    |--FilterOutputStream
+        |--BufferedOutputStream
+        |--DataOutputStream
+    |--ByteArrayOutputStream
+    |--ObjectOutputStream
+    |--PipedOutputStream
+    |--PrintStream
+</code></pre></li>
+<li><p>示例：读出C盘下txt文件</p>
+<pre><code>public static void listDemo_2() {
+        File dir = new File(&quot;c:\\&quot;);
+        String[] names = dir.list(new SuffixFilter(&quot;.txt&quot;));
+        for(String name : names){
+            System.out.println(name);
+        }
+    }
+
+public class SuffixFilter implements FilenameFilter {
+    private String suffix ;
+    public SuffixFilter(String suffix) {
+        super();
+        this.suffix = suffix;
+    }
+    @Override
+    public boolean accept(File dir, String name) {
+        return name.endsWith(suffix);
+    }
+}
+</code></pre></li>
+<li><p>示例：深度递归，读出制定目录下的所有文件和文件夹，包括子目录。</p>
+<pre><code>public class FileTest {
+    public static void main(String[] args) {
+        File dir = new File(&quot;D:\\me\\mime\\RuntimePermissions&quot;);
+        listAll(dir,0);
+    }
+    /**
+     * 
+     * @param dir
+     * @param spaceLevel 这个是为了打印结果好看，与空格有关的参数
+     */
+    public static void listAll(File dir,int spaceLevel) {
+        System.out.println(getSpace(spaceLevel)+dir.getName());
+        //获取指定目录下当前的所有文件夹或者文件对象
+        spaceLevel++;
+        File[] files = dir.listFiles();
+
+        for(int x=0; x&lt;files.length; x++){
+
+            if(files[x].isDirectory()){
+                listAll(files[x],spaceLevel);
+            }
+            else
+                System.out.println(getSpace(spaceLevel)+files[x].getName());
+        }    
+    }
+    private static String getSpace(int spaceLevel) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(&quot;|--&quot;);
+        for(int x=0; x&lt;spaceLevel; x++){
+            builder.insert(0,&quot;|  &quot;);
+        }
+        return builder.toString();
+    }
+}
+</code></pre></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/09/09/面试总结-Java基础(一)/">面试总结-Java基础(一)</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">小爱小世界</a></p>
+        <p><span>发布时间:</span>2016-09-09, 11:46:56</p>
+        <p><span>最后更新:</span>2016-09-09, 14:24:28</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/09/面试总结-Java基础(一)/" title="面试总结-Java基础(一)">http://lovexiaoai.cn/2016/09/09/面试总结-Java基础(一)/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lovexiaoai.cn/2016/09/09/面试总结-Java基础(一)/　　作者: 小爱小世界" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/09/09/Android7.0须知--应用间共享文件/">
+                    Android7.0须知--应用间共享文件（FileProvider）
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/07/25/动态权限申请/">
+                    Android6.0动态权限申请步骤以及需要注意的一些坑
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java静态代码块、构造函数、构造代码块"><span class="toc-number">2.</span> <span class="toc-text">Java静态代码块、构造函数、构造代码块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-封装、继承、多态"><span class="toc-number">3.</span> <span class="toc-text">Java-封装、继承、多态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程"><span class="toc-number">4.</span> <span class="toc-text">线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合"><span class="toc-number">5.</span> <span class="toc-text">集合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Collection：单列集合"><span class="toc-number">5.1.</span> <span class="toc-text">Collection：单列集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map：双列集合"><span class="toc-number">5.2.</span> <span class="toc-text">Map：双列集合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#io"><span class="toc-number">6.</span> <span class="toc-text">io</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"面试总结-Java基础(一)　| 小爱　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/09/09/面试总结-Java基础(一)/" data-title="面试总结-Java基础(一)" data-url="http://lovexiaoai.cn/2016/09/09/面试总结-Java基础(一)/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"lovexiaoai"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/09/09/Android7.0须知--应用间共享文件/" title="上一篇: Android7.0须知--应用间共享文件（FileProvider）">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/07/25/动态权限申请/" title="下一篇: Android6.0动态权限申请步骤以及需要注意的一些坑">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/09/手工/">手工制作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/09/Android7.0须知--应用间共享文件/">Android7.0须知--应用间共享文件（FileProvider）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/09/面试总结-Java基础(一)/">面试总结-Java基础(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/25/动态权限申请/">Android6.0动态权限申请步骤以及需要注意的一些坑</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 小爱小世界
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+             post: ".article-entry a[href], .copyright a[href]", 
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
