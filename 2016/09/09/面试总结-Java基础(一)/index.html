@@ -37,7 +37,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975505-4c0280c26dc8f362.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975505-e79c1f6d1d05fffd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975505-5e4feced20d43d03.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-09-09T06:24:28.577Z">
+<meta property="og:updated_time" content="2016-09-09T07:35:37.628Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试总结-Java基础(一)">
 <meta name="twitter:description" content="我的简书: 面试总结-Java基础(一)
@@ -330,25 +330,8 @@
 </ul>
 <a id="more"></a>
 <pre><code>注意：不支持long,double，JDK7之后，开始支持String。
-
-    //简单示例
-    public class MyDemo {
-        public static void main(String... args) {
-            Demo demo = Demo.A;
-            switch (demo) {
-                case A:
-                    break;
-                case B:
-                    break;
-            }
-        }
-        enum Demo {
-            A,
-            B,
-            C
-        }
-    }
-</code></pre><ul>
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//简单示例</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... args)</span> </span>&#123;</div><div class="line">        Demo demo = Demo.A;</div><div class="line">        <span class="keyword">switch</span> (demo) &#123;</div><div class="line">            <span class="keyword">case</span> A:</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> B:</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">enum</span> Demo &#123;</div><div class="line">        A,</div><div class="line">        B,</div><div class="line">        C</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
 <li><p>2 if和switch的区别：</p>
 <p>  if ：1.对具体的值进行判断  2.对区间判断  3.对运算结果是boolean类型的表达式进行判断</p>
 <p>  switch :1.对具体的值进行判断；2.值的个数通常是固定的。</p>
@@ -362,28 +345,15 @@
 <li><p>单例模式 </p>
 <ul>
 <li><p>饿汉式</p>
-<pre><code>private static Single s = new Single ( ) ;
-        private Single ( ) { }  
-        public static Single getInstance () 
-        {
-        return s ;
-        }
-</code></pre></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> Single s = <span class="keyword">new</span> Single ( ) ;</div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="title">Single</span> <span class="params">( )</span> </span>&#123; &#125;  </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single <span class="title">getInstance</span> <span class="params">()</span> </span></div><div class="line">        &#123;</div><div class="line">        <span class="keyword">return</span> s ;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+</li>
 <li><p>懒汉式</p>
-<pre><code>class Single {
-    public static Single getInstance (){
-        if ( s== null ){
-            synchronized (Single.class){//锁不读可以提高效率
-            if ( s== null ){
-                s = new Single () ;
-             }
-         }
-        return s ;
-    }
-}
-</code></pre></li>
+</li>
 </ul>
 </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Single</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single <span class="title">getInstance</span> <span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> ( s== <span class="keyword">null</span> )&#123;</div><div class="line">            <span class="keyword">synchronized</span> (Single.class)&#123;<span class="comment">//锁不读可以提高效率</span></div><div class="line">            <span class="keyword">if</span> ( s== <span class="keyword">null</span> )&#123;</div><div class="line">                s = <span class="keyword">new</span> Single () ;</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">        <span class="keyword">return</span> s ;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
 <li><p>特殊关键字：final</p>
 <pre><code>1.    可以修饰类、函数、变量；
 2.    被final修饰的类不可以被继承。为了避免被继承，被子类复写。final class Demo { }
@@ -406,57 +376,12 @@ IndexOutOfBoundsException, NullPointerException,
 </ul>
 <p><img src="http://upload-images.jianshu.io/upload_images/1975505-36b3596263710c99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="权限.png"></p>
 <h2 id="Java静态代码块、构造函数、构造代码块"><a href="#Java静态代码块、构造函数、构造代码块" class="headerlink" title="Java静态代码块、构造函数、构造代码块"></a>Java静态代码块、构造函数、构造代码块</h2><ul>
-<li><p>先看下面一段代码，运行Test，会打印什么？</p>
-<pre><code>package test;
-public class Test {
-    public static void main(String... args) {
-        TestA a;
-        a = new TestA();
-        a = new TestA();
-        TestA aa = new TestA();
-    }
-}
-class TestA {
-    {
-        System.out.println(&quot;TestA code create&quot;);
-    }
-
-    private TestB b = new TestB();
-    private static TestC c = new TestC();
-
-    public TestA() {
-        System.out.println(&quot;TestA create&quot;);
-    }
-
-    static {
-        System.out.println(&quot;TestA static create&quot;);
-    }
-}
-class TestB {
-    public TestB() {
-        System.out.println(&quot;TestB create&quot;);
-    }
-}
-class TestC {
-    public TestC() {
-        System.out.println(&quot;TestC create&quot;);
-    }
-}
-</code></pre></li>
+<li>先看下面一段代码，运行Test，会打印什么？</li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> test;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... args)</span> </span>&#123;</div><div class="line">		TestA a;</div><div class="line">		a = <span class="keyword">new</span> TestA();</div><div class="line">		a = <span class="keyword">new</span> TestA();</div><div class="line">        TestA aa = <span class="keyword">new</span> TestA();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestA</span> </span>&#123;</div><div class="line">	&#123;</div><div class="line">		System.out.println(<span class="string">"TestA code create"</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> TestB b = <span class="keyword">new</span> TestB();</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> TestC c = <span class="keyword">new</span> TestC();</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TestA</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"TestA create"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">static</span> &#123;</div><div class="line">		System.out.println(<span class="string">"TestA static create"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestB</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TestB</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"TestB create"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestC</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TestC</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"TestC create"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>打印结果：  </p>
-<pre><code>TestC create
-TestA static create
-TestA code create
-TestB create
-TestA create
-TestA code create
-TestB create
-TestA create
-TestA code create
-TestB create
-TestA create
-</code></pre><ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">TestC create</div><div class="line">TestA <span class="keyword">static</span> create</div><div class="line">TestA code create</div><div class="line">TestB create</div><div class="line">TestA create</div><div class="line">TestA code create</div><div class="line">TestB create</div><div class="line">TestA create</div><div class="line">TestA code create</div><div class="line">TestB create</div><div class="line">TestA create</div></pre></td></tr></table></figure>
+<ul>
 <li><p>static特点：</p>
 <pre><code>1.    随着类的加载而加载（随着类的消失而消失，生命周期最长）
 2.    优先于对象存在
@@ -507,26 +432,9 @@ TestA create
 ●    接口与接口之间可以有继承关系，可以多继承。
      因为接口没有方法体，不会存在两个父类出现同一个方法但是方法体不同的情况，
      不会引起冲突，如下：
-
-public class Test implements d{
-    public static void main(String... args) {
-    }
-
-    @Override
-    public void as() {
-    }
-}
-
-interface d extends e,f {
-}
-interface f{
-    void as();
-}
-interface e{
-    void as();
-}
 </code></pre></li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">implements</span> <span class="title">d</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... args)</span> </span>&#123;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">as</span><span class="params">()</span> </span>&#123;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">d</span> <span class="keyword">extends</span> <span class="title">e</span>,<span class="title">f</span> </span>&#123;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">f</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">as</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">e</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">as</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li><p>接口和抽象类的异同点：</p>
 <pre><code> 相同点：都是不断向上抽取而来的。不可以被实例化
@@ -621,53 +529,9 @@ interface e{
   暂停当前正在执行的线程对象，并执行其他线程。
 </code></pre></li>
 <li><p>一个死锁的demo</p>
-<pre><code>class Test implements Runnable {
-    private boolean flag;
-    Test(boolean flag) {
-        this.flag = flag;
-    }
-    public void run() {
-
-        if (flag) {
-            while (true)
-                synchronized (MyLock.locka) {
-                    System.out.println(Thread.currentThread().getName()
-                            + &quot;..if   locka....&quot;);
-                    synchronized (MyLock.lockb) {
-                        System.out.println(Thread.currentThread().getName()
-                                + &quot;..if   lockb....&quot;);
-                    }
-                }
-        } else {
-            while (true)
-                synchronized (MyLock.lockb) {
-                    System.out.println(Thread.currentThread().getName()
-                            + &quot;..else  lockb....&quot;);
-                    synchronized (MyLock.locka) {
-                        System.out.println(Thread.currentThread().getName()
-                                + &quot;..else   locka....&quot;);
-                    }
-                }
-        }
-    }
-}
-
-class MyLock {
-    public static final Object locka = new Object();
-    public static final Object lockb = new Object();
-}
-class DeadLockTest {
-    public static void main(String[] args) {
-        Test a = new Test(true);
-        Test b = new Test(false);
-        Thread t1 = new Thread(a);
-        Thread t2 = new Thread(b);
-        t1.start();
-        t2.start();
-    }
-}
-</code></pre></li>
+</li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> flag;</div><div class="line">	Test(<span class="keyword">boolean</span> flag) &#123;</div><div class="line">		<span class="keyword">this</span>.flag = flag;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">		<span class="keyword">if</span> (flag) &#123;</div><div class="line">			<span class="keyword">while</span> (<span class="keyword">true</span>)</div><div class="line">				<span class="keyword">synchronized</span> (MyLock.locka) &#123;</div><div class="line">					System.out.println(Thread.currentThread().getName()</div><div class="line">							+ <span class="string">"..if   locka...."</span>);</div><div class="line">					<span class="keyword">synchronized</span> (MyLock.lockb) &#123;</div><div class="line">						System.out.println(Thread.currentThread().getName()</div><div class="line">								+ <span class="string">"..if   lockb...."</span>);</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">while</span> (<span class="keyword">true</span>)</div><div class="line">				<span class="keyword">synchronized</span> (MyLock.lockb) &#123;</div><div class="line">					System.out.println(Thread.currentThread().getName()</div><div class="line">							+ <span class="string">"..else  lockb...."</span>);</div><div class="line">					<span class="keyword">synchronized</span> (MyLock.locka) &#123;</div><div class="line">						System.out.println(Thread.currentThread().getName()</div><div class="line">								+ <span class="string">"..else   locka...."</span>);</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyLock</span> </span>&#123;</div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Object locka = <span class="keyword">new</span> Object();</div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Object lockb = <span class="keyword">new</span> Object();</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DeadLockTest</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Test a = <span class="keyword">new</span> Test(<span class="keyword">true</span>);</div><div class="line">		Test b = <span class="keyword">new</span> Test(<span class="keyword">false</span>);</div><div class="line">		Thread t1 = <span class="keyword">new</span> Thread(a);</div><div class="line">		Thread t2 = <span class="keyword">new</span> Thread(b);</div><div class="line">		t1.start();</div><div class="line">		t2.start();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li><p>wait和sleep的区别</p>
 <pre><code>1. wait 可以指定时间也可以不指定。sleep必须指定时间。
@@ -811,64 +675,13 @@ OutputStream
     |--PrintStream
 </code></pre></li>
 <li><p>示例：读出C盘下txt文件</p>
-<pre><code>public static void listDemo_2() {
-        File dir = new File(&quot;c:\\&quot;);
-        String[] names = dir.list(new SuffixFilter(&quot;.txt&quot;));
-        for(String name : names){
-            System.out.println(name);
-        }
-    }
-
-public class SuffixFilter implements FilenameFilter {
-    private String suffix ;
-    public SuffixFilter(String suffix) {
-        super();
-        this.suffix = suffix;
-    }
-    @Override
-    public boolean accept(File dir, String name) {
-        return name.endsWith(suffix);
-    }
-}
-</code></pre></li>
-<li><p>示例：深度递归，读出制定目录下的所有文件和文件夹，包括子目录。</p>
-<pre><code>public class FileTest {
-    public static void main(String[] args) {
-        File dir = new File(&quot;D:\\me\\mime\\RuntimePermissions&quot;);
-        listAll(dir,0);
-    }
-    /**
-     * 
-     * @param dir
-     * @param spaceLevel 这个是为了打印结果好看，与空格有关的参数
-     */
-    public static void listAll(File dir,int spaceLevel) {
-        System.out.println(getSpace(spaceLevel)+dir.getName());
-        //获取指定目录下当前的所有文件夹或者文件对象
-        spaceLevel++;
-        File[] files = dir.listFiles();
-
-        for(int x=0; x&lt;files.length; x++){
-
-            if(files[x].isDirectory()){
-                listAll(files[x],spaceLevel);
-            }
-            else
-                System.out.println(getSpace(spaceLevel)+files[x].getName());
-        }    
-    }
-    private static String getSpace(int spaceLevel) {
-        StringBuilder builder = new StringBuilder();
-        builder.append(&quot;|--&quot;);
-        for(int x=0; x&lt;spaceLevel; x++){
-            builder.insert(0,&quot;|  &quot;);
-        }
-        return builder.toString();
-    }
-}
-</code></pre></li>
+</li>
 </ul>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">listDemo_2</span><span class="params">()</span> </span>&#123;</div><div class="line">		File dir = <span class="keyword">new</span> File(<span class="string">"c:\\"</span>);</div><div class="line">		String[] names = dir.list(<span class="keyword">new</span> SuffixFilter(<span class="string">".txt"</span>));</div><div class="line">		<span class="keyword">for</span>(String name : names)&#123;</div><div class="line">			System.out.println(name);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SuffixFilter</span> <span class="keyword">implements</span> <span class="title">FilenameFilter</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> String suffix ;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SuffixFilter</span><span class="params">(String suffix)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>();</div><div class="line">		<span class="keyword">this</span>.suffix = suffix;</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">accept</span><span class="params">(File dir, String name)</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> name.endsWith(suffix);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>示例：深度递归，读出制定目录下的所有文件和文件夹，包括子目录。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileTest</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		File dir = <span class="keyword">new</span> File(<span class="string">"D:\\me\\mime\\RuntimePermissions"</span>);</div><div class="line">		listAll(dir,<span class="number">0</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * </div><div class="line">	 * <span class="doctag">@param</span> dir</div><div class="line">	 * <span class="doctag">@param</span> spaceLevel 这个是为了打印结果好看，与空格有关的参数</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">listAll</span><span class="params">(File dir,<span class="keyword">int</span> spaceLevel)</span> </span>&#123;</div><div class="line">		System.out.println(getSpace(spaceLevel)+dir.getName());</div><div class="line">		<span class="comment">//获取指定目录下当前的所有文件夹或者文件对象</span></div><div class="line">		spaceLevel++;</div><div class="line">		File[] files = dir.listFiles();</div><div class="line">		</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> x=<span class="number">0</span>; x&lt;files.length; x++)&#123;</div><div class="line">			</div><div class="line">			<span class="keyword">if</span>(files[x].isDirectory())&#123;</div><div class="line">				listAll(files[x],spaceLevel);</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span></div><div class="line">				System.out.println(getSpace(spaceLevel)+files[x].getName());</div><div class="line">		&#125;	</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">getSpace</span><span class="params">(<span class="keyword">int</span> spaceLevel)</span> </span>&#123;</div><div class="line">		StringBuilder builder = <span class="keyword">new</span> StringBuilder();</div><div class="line">		builder.append(<span class="string">"|--"</span>);</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> x=<span class="number">0</span>; x&lt;spaceLevel; x++)&#123;</div><div class="line">			builder.insert(<span class="number">0</span>,<span class="string">"|  "</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> builder.toString();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -879,7 +692,7 @@ public class SuffixFilter implements FilenameFilter {
         <p><span>本文标题:</span><a href="/2016/09/09/面试总结-Java基础(一)/">面试总结-Java基础(一)</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">小爱小世界</a></p>
         <p><span>发布时间:</span>2016-09-09, 11:46:56</p>
-        <p><span>最后更新:</span>2016-09-09, 14:24:28</p>
+        <p><span>最后更新:</span>2016-09-09, 15:35:37</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/09/09/面试总结-Java基础(一)/" title="面试总结-Java基础(一)">http://lovexiaoai.cn/2016/09/09/面试总结-Java基础(一)/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lovexiaoai.cn/2016/09/09/面试总结-Java基础(一)/　　作者: 小爱小世界" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
