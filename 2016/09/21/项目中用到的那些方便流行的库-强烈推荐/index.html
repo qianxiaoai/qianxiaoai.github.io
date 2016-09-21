@@ -14,19 +14,26 @@
 <meta name="author" content="小爱" />
 
 
-    
-    
 
-
-<meta name="description" content="认真的生活，开心的编程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小爱">
-<meta property="og:url" content="http://lovexiaoai.cn/index.html">
+<meta name="description" content="我的简书：项目中用到的那些方便流行的库-强烈推荐
+简介
+因为公司其他项目需要帮忙，项目紧张，我们组过去帮忙，连续加班N久，导致都没时间写博客，现在终于有时间，继续奋斗。
+本文主要对我们项目中的使用过的一些库流行库做些介绍，后期再对其中的一些库，如RxJava，RxAndroid，retrofit ，androidannotations，react-native，做细节的分析，到时候再附上使用的de">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android7.0须知--应用间共享文件（FileProvider）">
+<meta property="og:url" content="http://lovexiaoai.cn/2016/09/21/项目中用到的那些方便流行的库-强烈推荐/index.html">
 <meta property="og:site_name" content="小爱">
-<meta property="og:description" content="认真的生活，开心的编程">
+<meta property="og:description" content="我的简书：项目中用到的那些方便流行的库-强烈推荐
+简介
+因为公司其他项目需要帮忙，项目紧张，我们组过去帮忙，连续加班N久，导致都没时间写博客，现在终于有时间，继续奋斗。
+本文主要对我们项目中的使用过的一些库流行库做些介绍，后期再对其中的一些库，如RxJava，RxAndroid，retrofit ，androidannotations，react-native，做细节的分析，到时候再附上使用的de">
+<meta property="og:updated_time" content="2016-09-21T11:35:04.910Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小爱">
-<meta name="twitter:description" content="认真的生活，开心的编程">
+<meta name="twitter:title" content="Android7.0须知--应用间共享文件（FileProvider）">
+<meta name="twitter:description" content="我的简书：项目中用到的那些方便流行的库-强烈推荐
+简介
+因为公司其他项目需要帮忙，项目紧张，我们组过去帮忙，连续加班N久，导致都没时间写博客，现在终于有时间，继续奋斗。
+本文主要对我们项目中的使用过的一些库流行库做些介绍，后期再对其中的一些库，如RxJava，RxAndroid，retrofit ，androidannotations，react-native，做细节的分析，到时候再附上使用的de">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -54,13 +61,11 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
-    <style> .article { opacity: 0;} </style>
-
 
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>小爱</title>
+<title>Android7.0须知--应用间共享文件（FileProvider） | 小爱</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -69,8 +74,8 @@
     var yiliaConfig = {
         fancybox: true,
         animate: true,
-        isHome: true,
-        isPost: false,
+        isHome: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -257,9 +262,7 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-项目中用到的那些方便流行的库-强烈推荐" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-项目中用到的那些方便流行的库-强烈推荐" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/09/21/项目中用到的那些方便流行的库-强烈推荐/" class="article-date">
@@ -277,12 +280,27 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/21/项目中用到的那些方便流行的库-强烈推荐/">Android7.0须知--应用间共享文件（FileProvider）</a>
+    <h1 class="article-title" itemprop="name">
+      Android7.0须知--应用间共享文件（FileProvider）
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Rx/">Rx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -333,318 +351,85 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Rx/">Rx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-手工" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/09/手工/" class="article-date">
-      <time datetime="2016-09-09T05:53:17.113Z" itemprop="datePublished">2016-09-09</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/09/手工/">手工制作</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="闲着没事，做做手工"><a href="#闲着没事，做做手工" class="headerlink" title="闲着没事，做做手工"></a>闲着没事，做做手工</h3><p>闲的时候，跟着网上的教程，做点小手工~~~</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/生活/">生活</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/手工/">手工</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/09/09/手工/#more">阅读全文 >></a>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/09/21/项目中用到的那些方便流行的库-强烈推荐/">Android7.0须知--应用间共享文件（FileProvider）</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">小爱</a></p>
+        <p><span>发布时间:</span>2016-09-21, 19:33:33</p>
+        <p><span>最后更新:</span>2016-09-21, 19:35:04</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/21/项目中用到的那些方便流行的库-强烈推荐/" title="Android7.0须知--应用间共享文件（FileProvider）">http://lovexiaoai.cn/2016/09/21/项目中用到的那些方便流行的库-强烈推荐/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lovexiaoai.cn/2016/09/21/项目中用到的那些方便流行的库-强烈推荐/　　作者: 小爱" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android7.0须知--应用间共享文件" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/09/Android7.0须知--应用间共享文件/" class="article-date">
-      <time datetime="2016-09-09T03:46:56.000Z" itemprop="datePublished">2016-09-09</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/09/Android7.0须知--应用间共享文件/">Android7.0须知--应用间共享文件（FileProvider）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="关于Android-N"><a href="#关于Android-N" class="headerlink" title="关于Android N"></a>关于Android N</h2><p><a href="http://www.jianshu.com/p/3f9e3fc38eae">我的简书：Android7.0须知–应用间共享文件（FileProvider）</a></p>
-<p><a href="https://developer.android.com/preview/api-overview.html">Android N</a>已经出了好几个预览版了，正式版即将到来，为了迎接Android N的到来，我们接到任务，需要测试并解决我们的应用在7.0上面的适配问题和其他bug 。</p>
-<p>测试的时候，发现了一些bug，其中一个bug，就是在打开相册编辑页时，程序会异常退出。</p>
-<p>经过排查，发现应用崩溃前，报出FileUriExposedException异常，官网上搜索，发现在Android N的<a href="https://developer.android.com/preview/behavior-changes.html">behavior-changes</a>里面，有一些关于 FileUriExposedException 异常的描述：</p>
-<ul>
-<li>对于面向 Android N 的应用，Android 框架执行的 <a href="https://developer.android.com/reference/android/os/StrictMode.html">StrictMode</a>，API 禁止向您的应用外公开 file://URI。<br>如果一项包含文件 URI 的 Intent 离开您的应用，应用失败，并出现 FileUriExposedException异常。</li>
-</ul>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-N/">Android N</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FileProvider/">FileProvider</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/09/09/Android7.0须知--应用间共享文件/#more">阅读全文 >></a>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
-      
-      <div class="clearfix"></div>
     </div>
-    
-  </div>
-  
-</article>
 
 
 
-
-
-
-
-
-
-  
-    <article id="post-面试总结-Java基础(一)" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/09/面试总结-Java基础(一)/" class="article-date">
-      <time datetime="2016-09-09T03:46:56.000Z" itemprop="datePublished">2016-09-09</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+    <nav id="article-nav">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/09/面试总结-Java基础(一)/">面试总结-Java基础(一)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p><a href="http://www.jianshu.com/p/f3fdbcaf7e83">我的简书: 面试总结-Java基础(一)</a></p>
-<ul>
-<li>之前学习Java基础的时候做的一些笔记，稍微整理了一下，也方便以后看。不过这里都是一些较为基础的Java知识，后期有时间，会针对里面的泛型，多线程，算法，nio 等模块进行更深入的解析。</li>
-<li>如果有写错的地方，还望指出，一定及时更正。</li>
-</ul>
-<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul>
-<li>1 switch支持的类型：byte, short, int, char, enum,</li>
-</ul>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java基础/">java基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/09/09/面试总结-Java基础(一)/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-动态权限申请" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/25/动态权限申请/" class="article-date">
-      <time datetime="2016-07-25T06:51:12.322Z" itemprop="datePublished">2016-07-25</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/25/动态权限申请/">Android6.0动态权限申请步骤以及需要注意的一些坑</a>
-    </h1>
-  
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/09/09/手工/">
+                    手工制作
+                </a>
+            </div>
+        
+    </nav>
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p><a href="http://www.jianshu.com/p/a51593817825">我的简书: Android6.0动态权限申请步骤以及需要注意的一些坑</a></p>
-<p>因为工作需要，简单研究了一下Android6.0权限申请，在Google提供的sample的基础上，写了一个简单的demo。算是自己的笔记吧，可能会比较混乱，主要是方便以后查看。后期有别的问题，随时更新~</p>
-<ul>
-<li><a href="https://github.com/qianxiaoai/RuntimePermissionsDemo/tree/dev">本demo github下载地址！！！</a>  </li>
-<li><a href="https://github.com/googlesamples/android-RuntimePermissions">Google提供的demo的下载地址</a>  </li>
-<li>6.0权限的基本知识，以下是需要单独申请的权限，共分为9组，每组只要有一个权限申请成功了，就默认整组权限都可以使用了。</li>
-</ul>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-M/">Android M</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/权限/">权限</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/07/25/动态权限申请/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
   
 </article>
 
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rx系列"><span class="toc-number">2.</span> <span class="toc-text">Rx系列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RxJava："><span class="toc-number">2.1.</span> <span class="toc-text">RxJava：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EventBus"><span class="toc-number">2.2.</span> <span class="toc-text">EventBus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#androidannotations"><span class="toc-number">2.3.</span> <span class="toc-text">androidannotations</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Android7.0须知--应用间共享文件（FileProvider）　| 小爱　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
 
 
 
@@ -652,9 +437,52 @@
 
 
 
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/09/21/项目中用到的那些方便流行的库-强烈推荐/" data-title="Android7.0须知--应用间共享文件（FileProvider）" data-url="http://lovexiaoai.cn/2016/09/21/项目中用到的那些方便流行的库-强烈推荐/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"lovexiaoai"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
 
-  
-  
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/09/09/手工/" title="下一篇: 手工制作">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/21/项目中用到的那些方便流行的库-强烈推荐/">Android7.0须知--应用间共享文件（FileProvider）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/09/手工/">手工制作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/09/Android7.0须知--应用间共享文件/">Android7.0须知--应用间共享文件（FileProvider）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/09/面试总结-Java基础(一)/">面试总结-Java基础(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/25/动态权限申请/">Android6.0动态权限申请步骤以及需要注意的一些坑</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
