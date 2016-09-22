@@ -76,7 +76,7 @@
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: undefined
+        search: true
     }
 </script>
 
@@ -122,6 +122,13 @@
         <p class="header-subtitle">开心就好~</p>
         
 
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
         
 
 
@@ -404,6 +411,80 @@
 
 
   
+    <article id="post-Android7.0须知--应用间共享文件" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/09/Android7.0须知--应用间共享文件/" class="article-date">
+      <time datetime="2016-09-09T03:46:56.000Z" itemprop="datePublished">2016-09-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/09/Android7.0须知--应用间共享文件/">Android7.0须知--应用间共享文件（FileProvider）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="关于Android-N"><a href="#关于Android-N" class="headerlink" title="关于Android N"></a>关于Android N</h2><p><a href="http://www.jianshu.com/p/3f9e3fc38eae">我的简书：Android7.0须知–应用间共享文件（FileProvider）</a></p>
+<p><a href="https://developer.android.com/preview/api-overview.html">Android N</a>已经出了好几个预览版了，正式版即将到来，为了迎接Android N的到来，我们接到任务，需要测试并解决我们的应用在7.0上面的适配问题和其他bug 。</p>
+<p>测试的时候，发现了一些bug，其中一个bug，就是在打开相册编辑页时，程序会异常退出。</p>
+<p>经过排查，发现应用崩溃前，报出FileUriExposedException异常，官网上搜索，发现在Android N的<a href="https://developer.android.com/preview/behavior-changes.html">behavior-changes</a>里面，有一些关于 FileUriExposedException 异常的描述：</p>
+<ul>
+<li>对于面向 Android N 的应用，Android 框架执行的 <a href="https://developer.android.com/reference/android/os/StrictMode.html">StrictMode</a>，API 禁止向您的应用外公开 file://URI。<br>如果一项包含文件 URI 的 Intent 离开您的应用，应用失败，并出现 FileUriExposedException异常。</li>
+</ul>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-N/">Android N</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FileProvider/">FileProvider</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2016/09/09/Android7.0须知--应用间共享文件/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-面试总结-Java基础(一)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -461,80 +542,6 @@
       
         <p class="article-more-link">
           <a href="/2016/09/09/面试总结-Java基础(一)/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android7.0须知--应用间共享文件" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/09/Android7.0须知--应用间共享文件/" class="article-date">
-      <time datetime="2016-09-09T03:46:56.000Z" itemprop="datePublished">2016-09-09</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/09/Android7.0须知--应用间共享文件/">Android7.0须知--应用间共享文件（FileProvider）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="关于Android-N"><a href="#关于Android-N" class="headerlink" title="关于Android N"></a>关于Android N</h2><p><a href="http://www.jianshu.com/p/3f9e3fc38eae">我的简书：Android7.0须知–应用间共享文件（FileProvider）</a></p>
-<p><a href="https://developer.android.com/preview/api-overview.html">Android N</a>已经出了好几个预览版了，正式版即将到来，为了迎接Android N的到来，我们接到任务，需要测试并解决我们的应用在7.0上面的适配问题和其他bug 。</p>
-<p>测试的时候，发现了一些bug，其中一个bug，就是在打开相册编辑页时，程序会异常退出。</p>
-<p>经过排查，发现应用崩溃前，报出FileUriExposedException异常，官网上搜索，发现在Android N的<a href="https://developer.android.com/preview/behavior-changes.html">behavior-changes</a>里面，有一些关于 FileUriExposedException 异常的描述：</p>
-<ul>
-<li>对于面向 Android N 的应用，Android 框架执行的 <a href="https://developer.android.com/reference/android/os/StrictMode.html">StrictMode</a>，API 禁止向您的应用外公开 file://URI。<br>如果一项包含文件 URI 的 Intent 离开您的应用，应用失败，并出现 FileUriExposedException异常。</li>
-</ul>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-N/">Android N</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FileProvider/">FileProvider</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/09/09/Android7.0须知--应用间共享文件/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

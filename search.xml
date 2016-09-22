@@ -1,0 +1,1475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[项目中用到的那些方便流行的库-强烈推荐]]></title>
+      <url>http://lovexiaoai.cn/2016/09/21/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%94%A8%E5%88%B0%E7%9A%84%E9%82%A3%E4%BA%9B%E6%96%B9%E4%BE%BF%E6%B5%81%E8%A1%8C%E7%9A%84%E5%BA%93-%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90/</url>
+      <content type="html"><![CDATA[<p><a href="http://www.jianshu.com/p/6db1a5e84d67" target="_blank" rel="external">我的简书：项目中用到的那些方便流行的库-强烈推荐</a></p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><ul>
+<li>因为公司其他项目需要帮忙，项目紧张，我们组过去帮忙，连续加班N久，导致都没时间写博客，现在终于有时间，继续奋斗。</li>
+<li>本文主要对我们项目中的使用过的一些库流行库做些介绍，后期再对其中的一些库，如RxJava，RxAndroid，retrofit ，androidannotations，react-native，做细节的分析，到时候再附上使用的demo。</li>
+<li>本文中提到的库，都是目前流行的，而且使用量比较大，是非常好用的库，强烈推荐~</li>
+</ul>
+<h1 id="Rx系列"><a href="#Rx系列" class="headerlink" title="Rx系列"></a>Rx系列</h1><ul>
+<li>ReactiveX是ReactiveExtensions的缩写，简写为Rx，Rx是一个编程模型，目标是提供一致的编程接口，帮助开发者更方便的处理异步数据流，Rx库支持 .NET、JavaScript和C++，java，RxJava就是对java语言的支持。</li>
+<li><a href="http://top.caibaojian.com/2444" target="_blank" rel="external">Rx相关介绍</a></li>
+</ul>
+<a id="more"></a>
+<h2 id="RxJava："><a href="#RxJava：" class="headerlink" title="RxJava："></a>RxJava：</h2><ul>
+<li>观察者模式、响应式编程、函数式风格、简化代码，更轻松的使用并发，开发必备神器</li>
+<li><a href="https://github.com/ReactiveX/RxJava" target="_blank" rel="external">github源码</a></li>
+<li><a href="http://reactivex.io/RxJava/javadoc/index-all.html" target="_blank" rel="external">官方文档</a></li>
+<li><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/" target="_blank" rel="external">Rxjava文档中文版</a></li>
+<li><a href="https://github.com/kaushikgopal/RxJava-Android-Samples" target="_blank" rel="external">rxjava使用</a></li>
+<li><a href="https://github.com/lzyzsd/Awesome-RxJava" target="_blank" rel="external">Awesome-RxJava</a> ：关于rxjava相关内容集锦</li>
+<li><a href="http://gank.io/post/560e15be2dca930e00da1083" target="_blank" rel="external">给 Android 开发者的 RxJava 详解</a></li>
+<li><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0430/2815.html" target="_blank" rel="external">rxjava相关</a></li>
+<li>android studio中引入，build.grade的dependencies中引用举例：  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">'io.reactivex:rxjava:1.0.y-SNAPSHOT'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="RxAndroid："><a href="#RxAndroid：" class="headerlink" title="RxAndroid："></a>RxAndroid：</h2><ul>
+<li>在RxJava的基础上扩展了一些Android的功能</li>
+<li>除了下面提到的RxBinding，RxLifecycle，还有很多别的扩展库，有兴趣的小伙伴可以自己看看，<a href="https://github.com/ReactiveX/RxAndroid/wiki" target="_blank" rel="external">wiki</a>里面都有</li>
+<li><a href="https://github.com/ReactiveX/RxAndroid/" target="_blank" rel="external">github源码</a></li>
+<li><a href="https://github.com/ReactiveX/RxAndroid/wiki" target="_blank" rel="external">wiki</a> ：里面介绍了很多其他Android的基于rx的库</li>
+<li><a href="https://github.com/klnusbaum/rxandroidexamples" target="_blank" rel="external">使用demo</a></li>
+<li>简单示例：  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">Observable.create(<span class="keyword">new</span> Observable.OnSubscribe&lt;ArrayList&lt;MyItem&gt;&gt;() &#123;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(Subscriber&lt;? <span class="keyword">super</span> ArrayList&lt;MyItem&gt;&gt; subscriber)</span> </span>&#123;</div><div class="line">                <span class="comment">//一般为耗时操作，网络获取数据或者读取数据库等</span></div><div class="line">                ArrayList&lt;MyItem&gt; localData = MyDbManager.getDbDatas();</div><div class="line">                subscriber.onNext(localData); <span class="comment">//数据获取之后，返回获取的数据</span></div><div class="line">                subscriber.onCompleted();</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">                .subscribeOn(Schedulers.io()) <span class="comment">//获取数据在io线程中</span></div><div class="line">                .observeOn(AndroidSchedulers.mainThread()) <span class="comment">//得到数据之后，在主线程更新界面和数据</span></div><div class="line">                .subscribe(<span class="keyword">new</span> Observer&lt;ArrayList&lt;MyItem&gt;&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</div><div class="line">                        </div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(ArrayList&lt;MyItem&gt; items)</span> </span>&#123;</div><div class="line">                        <span class="comment">//得到数据，do something</span></div><div class="line">                    &#125;</div><div class="line">                &#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="RxBinding："><a href="#RxBinding：" class="headerlink" title="RxBinding："></a>RxBinding：</h2><ul>
+<li>Android控件的事件绑定，处理控件的异步调用，使用非常方便</li>
+<li><a href="https://github.com/JakeWharton/RxBinding" target="_blank" rel="external">github源码</a> </li>
+<li>简单示例：  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//防止多击，500ms内算一次点击</span></div><div class="line">RxView.clicks(view)</div><div class="line">    .throttleFirst(<span class="number">500</span>, TimeUnit.MILLISECONDS)</div><div class="line">    .subscribe(<span class="keyword">new</span> Action1&lt;Void&gt;() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(Void aVoid)</span> </span>&#123;</div><div class="line">            <span class="comment">//点击事件处理</span></div><div class="line">        &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="RxLifecycle："><a href="#RxLifecycle：" class="headerlink" title="RxLifecycle："></a>RxLifecycle：</h2><ul>
+<li>绑定生命，例如，使用Retrofit请求网络的时候，可以直接绑定生命周期，在界面退出时，取消请求。</li>
+<li><a href="https://github.com/trello/RxLifecycle" target="_blank" rel="external">github源码</a></li>
+<li>简单示例  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//伪代码</span></div><div class="line">Observable.compose(<span class="keyword">this</span>.&lt;MyData&gt;bindToLifecycle()) <span class="comment">//activity中</span></div><div class="line">Observable..compose(<span class="keyword">this</span>.&lt;MyData&gt;bindUntilEvent(FragmentEvent.DETACH)) <span class="comment">//Fragment中</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="网络系列"><a href="#网络系列" class="headerlink" title="网络系列"></a>网络系列</h1><p>网络请求比较流行的几个开源库，我们项目中基本都用上了，此处做一些简单介绍。个人最喜欢retrofit，结合Rxjava，RxAndroid简直完美~</p>
+<h2 id="okhttp："><a href="#okhttp：" class="headerlink" title="okhttp："></a>okhttp：</h2><ul>
+<li><a href="https://github.com/square" target="_blank" rel="external">Square</a>门下的代表作之一，听说从Android4.4开始HttpURLConnection的底层实现采用的是okHttp.支持SPDY、连接池、GZIP、HTTP 缓存。</li>
+<li><a href="https://github.com/square/okhttp" target="_blank" rel="external">github源码</a></li>
+<li><a href="http://square.github.io/okhttp/" target="_blank" rel="external">官网</a></li>
+<li><a href="https://github.com/square/okhttp/wiki" target="_blank" rel="external">wiki</a></li>
+<li><a href="http://blog.csdn.net/jackingzheng/article/details/51778793" target="_blank" rel="external">wiki中文翻译</a></li>
+</ul>
+<h2 id="retrofit："><a href="#retrofit：" class="headerlink" title="retrofit："></a>retrofit：</h2><ul>
+<li>Retrofit与okhttp共同出自于<a href="https://github.com/square" target="_blank" rel="external">Square</a>，retrofit对okhttp做了一层封装,真正的网络请求，默认使用的是okhttp。结合RxJava，RxAndroid，代码清晰明了.</li>
+<li><a href="https://github.com/square/retrofit" target="_blank" rel="external">github源码</a></li>
+<li><a href="http://square.github.io/retrofit/" target="_blank" rel="external">官网</a></li>
+<li><a href="https://github.com/square/retrofit/wiki" target="_blank" rel="external">wiki</a></li>
+</ul>
+<h2 id="volley："><a href="#volley：" class="headerlink" title="volley："></a>volley：</h2><ul>
+<li>2013年Google I/O大会上推出了一个网络通信框架—— Volley.</li>
+<li>公司有一个项目中用的是这个网络请求框架,不过发现一个bug,退出activity时取消网络请求，下次进入，可能会出现本次请求没有走success和failure的回调，是因为之前的cancel引起的bug,不知道现在有没有解决这个bug.</li>
+<li><a href="https://android.googlesource.com/platform/frameworks/volley" target="_blank" rel="external">源码</a></li>
+<li>下载源码：   <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https:<span class="comment">//android.googlesource.com/platform/frameworks/volley</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="图片系列"><a href="#图片系列" class="headerlink" title="图片系列"></a>图片系列</h1><ul>
+<li>图片加载这块，不管使用哪个库或者自己写，用起来多简单，都建议多一次封装，写个ImageUtils，将所有的图片加载放在这里面，这样以后如果有问题，或者需要替换别的图片库，会方便很多，代码也更易管理。</li>
+</ul>
+<h2 id="Picasso"><a href="#Picasso" class="headerlink" title="Picasso"></a>Picasso</h2><ul>
+<li>同样是square门下的，是较轻量级图片缓存库，本身没有做本地缓存，交给了网络库 okhttp 去实现。简单好用~</li>
+<li><a href="https://github.com/square/picasso" target="_blank" rel="external">github源码</a></li>
+<li><a href="http://square.github.io/picasso/" target="_blank" rel="external">官网</a></li>
+<li>简单示例  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Picasso.with(context).load(uri).placeholder(R.drawable.placeholder).into(view);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="glide"><a href="#glide" class="headerlink" title="glide"></a>glide</h2><ul>
+<li>不仅支持图片缓存，还支持 Gif、WebP、缩略图、视频。</li>
+<li><a href="https://github.com/bumptech/glide" target="_blank" rel="external">github源码</a></li>
+<li><a href="https://github.com/bumptech/glide/wiki" target="_blank" rel="external">wiki</a></li>
+<li>简单示例  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Glide.with(context).load(uri).placeholder(R.drawable.placeholder).into(view);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="fresco"><a href="#fresco" class="headerlink" title="fresco"></a>fresco</h2><ul>
+<li>强大的图片加载组件，支持加载Gif图和WebP，不过感觉使用起来没有picasso和glide那么简单。</li>
+<li><a href="http://www.fresco-cn.org/" target="_blank" rel="external">fresco官网</a></li>
+<li><a href="https://github.com/facebook/fresco" target="_blank" rel="external">github源码</a></li>
+<li><a href="https://github.com/liaohuqiu/fresco-demo-for-gradle" target="_blank" rel="external">fresco demo</a></li>
+<li><a href="http://www.fresco-cn.org/docs/getting-started.html" target="_blank" rel="external">fresco的使用</a></li>
+</ul>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="react-native"><a href="#react-native" class="headerlink" title="react-native"></a>react-native</h2><ul>
+<li>我们目前的项目中正在使用的库，我也正在学习中</li>
+<li>react-native现在可是火到不行啊~它的宣传语是“Learn once，write anywhere”</li>
+<li><a href="https://github.com/facebook/react-native" target="_blank" rel="external">github源码</a></li>
+<li><a href="http://facebook.github.io/react-native/" target="_blank" rel="external">官方文档</a></li>
+<li><a href="http://reactnative.cn/" target="_blank" rel="external">中文文档</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/react-native/" target="_blank" rel="external">极客学院文档</a></li>
+<li><a href="http://www.lcode.org/%E5%8F%B2%E4%B8%8A%E6%9C%80%E8%AF%A6%E7%BB%86windows%E7%89%88%E6%9C%AC%E6%90%AD%E5%BB%BA%E5%AE%89%E8%A3%85react-native%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" target="_blank" rel="external">史上最详细Windows版本搭建安装React Native环境配置</a></li>
+</ul>
+<h2 id="LeakCanary"><a href="#LeakCanary" class="headerlink" title="LeakCanary"></a>LeakCanary</h2><ul>
+<li>有时候OOM只是表象，更深层次的原因可能是内存泄漏，什么是内存泄漏？直白点说就是该内存空间使用完之后没有被回收，内存泄漏严重会导致内存很快被耗尽，从而导致OOM，最后程序crash~~~</li>
+<li>LeakCanary可以检测内存泄漏，让内存泄漏无所遁形。使用后，在debug模式下，如果出现内存泄漏，则会弹出通知，告诉你哪里出现了泄漏，非常好用~</li>
+<li><a href="https://github.com/square/leakcanary" target="_blank" rel="external">github源码</a></li>
+<li><a href="https://github.com/square/leakcanary/wiki/Customizing-LeakCanary" target="_blank" rel="external">LeakCanary使用说明</a></li>
+<li><a href="http://www.liaohuqiu.net/cn/posts/leak-canary-read-me/" target="_blank" rel="external">LeakCanary中文使用说明</a></li>
+<li><p>build.gradle 中加入引用，不同的编译使用不同的引用.目前已经到1.4版本了，具体见<a href="https://github.com/square/leakcanary" target="_blank" rel="external">github</a></p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    debugCompile <span class="string">'com.squareup.leakcanary:leakcanary-android:1.3.1'</span></div><div class="line">    forTestCompile <span class="string">'com.squareup.leakcanary:leakcanary-android:1.3.1'</span></div><div class="line">    releaseCompile <span class="string">'com.squareup.leakcanary:leakcanary-android-no-op:1.3.1'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>简单示例：</p>
+   <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> <span class="keyword">extends</span> <span class="title">MultiDexApplication</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> RefWatcher mRefWatcher;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate();</div><div class="line">         <span class="comment">// init memory leak detection</span></div><div class="line">        mRefWatcher = LeakCanary.install(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RefWatcher <span class="title">getRefWatcher</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        MyApplication application = (MyApplication) context.getApplicationContext();</div><div class="line">        <span class="keyword">return</span> application.mRefWatcher;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//监控你想要监控的对象。以此为例：</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseFragment</span> <span class="keyword">extends</span> <span class="title">RxFragment</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDestroy();</div><div class="line">        <span class="keyword">if</span> (getActivity() != <span class="keyword">null</span>) &#123;</div><div class="line">            RefWatcher refWatcher = ZYApplication.getRefWatcher(getActivity());</div><div class="line">            refWatcher.watch(<span class="keyword">this</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="EventBus"><a href="#EventBus" class="headerlink" title="EventBus"></a>EventBus</h2><ul>
+<li>EventBus用于发布/订阅事件。可以替代Intent,Handler,BroadCast在Activity,Fragment,线程等之间的消息传递.代码简洁优雅，将发送者和接收者解耦。例如：登录功能，登录成功之后发送一个消息，需要刷新或关闭的界面，接受这个消息，做自己想做的事情~</li>
+<li><a href="https://github.com/greenrobot/EventBus/" target="_blank" rel="external">github源码</a></li>
+<li>简单示例：  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AccountEvent</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> User user;<span class="comment">//你想要传递的数据</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AccountEvent</span><span class="params">(User user)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.user = user;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">getUser</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> user;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUser</span><span class="params">(User user)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.user = user;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginActivity</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">loginSuccess</span><span class="params">(User user)</span> </span>&#123;</div><div class="line">        EventBus.getDefault().post(<span class="keyword">new</span> AccountEvent(user));<span class="comment">//发消息</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyFragment</span></span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        EventBus.getDefault().register(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDestroy();</div><div class="line">        EventBus.getDefault().unregister(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onEvent</span><span class="params">(AccountEvent event)</span> </span>&#123;<span class="comment">//接受消息</span></div><div class="line">        <span class="comment">//do something </span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="androidannotations"><a href="#androidannotations" class="headerlink" title="androidannotations"></a>androidannotations</h2><ul>
+<li>注解，一方面可以减少代码量，再也不用findViewById了，另一方面，代码清晰明了，优雅的不得了啊，哈哈~</li>
+<li>常用的比较好的注解库有两个，一个是androidannotations，另一个是<a href="https://github.com/JakeWharton/butterknife/" target="_blank" rel="external">butterknife</a>,butterknife很火，是JakeWharton大神的作品，火是必须的~</li>
+<li>但是我们的项目中用的是androidannotations，因为androidannotations不是利用的反射技术，性能相对好点，它是在本地自动生成一个新的类（如你在MyActivity中使用了注解，则它会自动生成一个MyActivity<em> 类），真正执行的是它自动生成的这个类，而且在manifest中需要注册的也是此MyActivity</em>，而不是MyActivity，你也可以打开这个类，看看里面的实现，有bug也比较好解决。</li>
+<li><a href="http://androidannotations.org/" target="_blank" rel="external">官网</a></li>
+<li><a href="https://github.com/excilys/androidannotations" target="_blank" rel="external">github源码</a></li>
+<li><a href="https://github.com/excilys/androidannotations/wiki" target="_blank" rel="external">wiki</a>：androidannotations的wiki非常详细，有问题的小伙伴们，可以好好地看看这个。</li>
+<li>简单示例  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@EActivity</span>(R.layout.activity_my)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyActivity</span> <span class="keyword">extends</span> <span class="title">BaseActivity</span> </span>&#123;</div><div class="line">    <span class="meta">@StringRes</span>(R.string.my_string)</div><div class="line">    String mMyString;</div><div class="line">    </div><div class="line">    <span class="meta">@ViewById</span>(R.id.tv)</div><div class="line">    TextView mTV;</div><div class="line">    </div><div class="line">    <span class="meta">@Extra</span>()</div><div class="line">    <span class="keyword">int</span> mCount;</div><div class="line">    </div><div class="line">    <span class="meta">@Pref</span></div><div class="line">    UserPreference_ mUserPreference;</div><div class="line">    </div><div class="line">    <span class="meta">@AfterViews</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">initialize</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">//初始化数据</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Click</span>(R.id.finish_iv)</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">finish</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//do something</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loginSuccess</span><span class="params">()</span></span>&#123;</div><div class="line">        mUserPreference.edit().hasLogin().put(<span class="keyword">true</span>).apply();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@SharedPref</span>(value = SharedPref.Scope.UNIQUE) <span class="comment">//作用域：整个应用都可以使用</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserPreference</span> </span>&#123;</div><div class="line">    <span class="meta">@DefaultBoolean</span>(<span class="keyword">false</span>)</div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">hasLogin</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[手工制作]]></title>
+      <url>http://lovexiaoai.cn/2016/09/09/%E6%89%8B%E5%B7%A5/</url>
+      <content type="html"><![CDATA[<h3 id="闲着没事，做做手工"><a href="#闲着没事，做做手工" class="headerlink" title="闲着没事，做做手工"></a>闲着没事，做做手工</h3><p>闲的时候，跟着网上的教程，做点小手工~~~</p>
+<a id="more"></a>
+<h4 id="花球"><a href="#花球" class="headerlink" title="花球"></a>花球</h4><p><img src="http://od8aghac7.bkt.clouddn.com/%E8%8A%B1%E7%90%83.jpg" alt="花球.jpg"></p>
+<h4 id="莲花"><a href="#莲花" class="headerlink" title="莲花"></a>莲花</h4><p><img src="http://od8aghac7.bkt.clouddn.com/%E8%8E%B2%E8%8A%B1.jpg" alt="莲花.jpg"></p>
+<h4 id="猫头鹰"><a href="#猫头鹰" class="headerlink" title="猫头鹰"></a>猫头鹰</h4><p><img src="http://od8aghac7.bkt.clouddn.com/maotouying.jpg" alt="猫头鹰.jpg"></p>
+<h4 id="三角糖果盒"><a href="#三角糖果盒" class="headerlink" title="三角糖果盒"></a>三角糖果盒</h4><p><img src="http://od8aghac7.bkt.clouddn.com/%E4%B8%89%E8%A7%92%E7%B3%96%E6%9E%9C%E7%9B%92.jpg" alt="三角糖果盒.jpg"></p>
+<h4 id="四叶草"><a href="#四叶草" class="headerlink" title="四叶草"></a>四叶草</h4><p><img src="http://od8aghac7.bkt.clouddn.com/%E5%9B%9B%E5%8F%B6%E8%8D%89.jpg" alt="四叶草.jpg"></p>
+<h4 id="糖果盒"><a href="#糖果盒" class="headerlink" title="糖果盒"></a>糖果盒</h4><p><img src="http://od8aghac7.bkt.clouddn.com/%E7%B3%96%E6%9E%9C%E7%9B%92.jpg" alt="糖果盒.jpg"></p>
+<h4 id="小方块"><a href="#小方块" class="headerlink" title="小方块"></a>小方块</h4><p><img src="http://od8aghac7.bkt.clouddn.com/%E5%B0%8F%E6%96%B9%E5%9D%97.jpg" alt="小方块.jpg"></p>
+<h4 id="小花"><a href="#小花" class="headerlink" title="小花"></a>小花</h4><p><img src="http://od8aghac7.bkt.clouddn.com/%E5%B0%8F%E8%8A%B1.jpg" alt="小花.jpg"></p>
+<h4 id="小孔雀"><a href="#小孔雀" class="headerlink" title="小孔雀"></a>小孔雀</h4><p><img src="http://od8aghac7.bkt.clouddn.com/%E5%B0%8F%E5%AD%94%E9%9B%80.jpg" alt="小孔雀.jpg"></p>
+<h4 id="雪花"><a href="#雪花" class="headerlink" title="雪花"></a>雪花</h4><p><img src="http://od8aghac7.bkt.clouddn.com/%E9%9B%AA%E8%8A%B1.jpg" alt="雪花.jpg"></p>
+<h4 id="百合、菱形挂件"><a href="#百合、菱形挂件" class="headerlink" title="百合、菱形挂件"></a>百合、菱形挂件</h4><p><img src="http://od8aghac7.bkt.clouddn.com/%E7%99%BE%E5%90%88%EF%BC%8C%E8%8F%B1%E5%BD%A2%E6%8C%82%E4%BB%B6.jpg" alt="百合、菱形挂件.jpg"></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Android7.0须知--应用间共享文件（FileProvider）]]></title>
+      <url>http://lovexiaoai.cn/2016/09/09/Android7.0%E9%A1%BB%E7%9F%A5--%E5%BA%94%E7%94%A8%E9%97%B4%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<h2 id="关于Android-N"><a href="#关于Android-N" class="headerlink" title="关于Android N"></a>关于Android N</h2><p><a href="http://www.jianshu.com/p/3f9e3fc38eae" target="_blank" rel="external">我的简书：Android7.0须知–应用间共享文件（FileProvider）</a></p>
+<p><a href="https://developer.android.com/preview/api-overview.html" target="_blank" rel="external">Android N</a>已经出了好几个预览版了，正式版即将到来，为了迎接Android N的到来，我们接到任务，需要测试并解决我们的应用在7.0上面的适配问题和其他bug 。</p>
+<p>测试的时候，发现了一些bug，其中一个bug，就是在打开相册编辑页时，程序会异常退出。</p>
+<p>经过排查，发现应用崩溃前，报出FileUriExposedException异常，官网上搜索，发现在Android N的<a href="https://developer.android.com/preview/behavior-changes.html" target="_blank" rel="external">behavior-changes</a>里面，有一些关于 FileUriExposedException 异常的描述：</p>
+<ul>
+<li>对于面向 Android N 的应用，Android 框架执行的 <a href="https://developer.android.com/reference/android/os/StrictMode.html" target="_blank" rel="external">StrictMode</a>，API 禁止向您的应用外公开 file://URI。<br>如果一项包含文件 URI 的 Intent 离开您的应用，应用失败，并出现 FileUriExposedException异常。</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>若要在应用间共享文件，您应发送一项 content://URI，并授予 URI 临时访问权限。<br>进行此授权的最简单方式是使用 <a href="https://developer.android.com/reference/android/support/v4/content/FileProvider.html" target="_blank" rel="external">FileProvider</a>类。 如需有关权限和共享文件的更多信息，<br>请参阅<a href="https://developer.android.com/training/secure-file-sharing/index.html" target="_blank" rel="external">共享文件</a>。</li>
+</ul>
+<p>也就是说，对于应用间共享文件这块，<a href="https://developer.android.com/preview/api-overview.html" target="_blank" rel="external">Android N</a>中做了强制性要求</p>
+<h2 id="以打开图片裁剪为例："><a href="#以打开图片裁剪为例：" class="headerlink" title="以打开图片裁剪为例："></a>以打开图片裁剪为例：</h2><ul>
+<li><p>打开相册编辑页面（伪代码）</p>
+<pre><code> Intent intent = new Intent(&quot;com.android.camera.action.CROP&quot;);
+
+String path = &quot;/storage/emulated/0/Pictures/Screenshots/img_test.png&quot;;
+Uri uri = Uri.parse(&quot;file://&quot;+ path); 
+intent.setDataAndType(uri, &quot;image/*&quot;);
+
+intent.putExtra(&quot;crop&quot;, &quot;true&quot;);
+intent.putExtra(&quot;outputX&quot;, 80);
+intent.putExtra(&quot;outputY&quot;, 80);
+intent.putExtra(&quot;return-data&quot;, false);
+context.startActivityForResult(intent, 1);
+</code></pre><p><img src="http://od8aghac7.bkt.clouddn.com/%E5%9B%BE%E7%89%87%E7%BC%96%E8%BE%91%E9%A1%B5%E9%9D%A2.jpg" alt="图片编辑页面.jpg"></p>
+</li>
+</ul>
+<ul>
+<li><p>在Android N以下版本，上述代码可以正常打开图片裁剪页面，但是在Android N中，这样是无法打开相册编辑页面的。系统会报错，提示相册应用出错，并抛出FileUriExposedException，程序异常退出。</p>
+<pre><code>//部分错误日志：
+
+  Process: com.google.android.apps.photos, PID: 24476
+                                               android.os.FileUriExposedException: file:///storage/emulated/0/Pictures/Screenshots/Screenshot_20160809-234958.png exposed beyond app through Intent.getData()
+                                                   at android.os.StrictMode.onFileUriExposed(StrictMode.java:1799)
+                                                   at android.net.Uri.checkFileUriExposed(Uri.java:2346)
+                                                   at android.content.Intent.prepareToLeaveProcess(Intent.java:8933)
+                                                   at android.content.Intent.prepareToLeaveProcess(Intent.java:8894)
+                                                   at android.app.Instrumentation.execStartActivity(Instrumentation.java:1517)
+                                                   at android.app.Activity.startActivityForResult(Activity.java:4223)
+                                                   at cx.startActivityForResult(PG:48)
+                                                   at de.startActivityForResult(PG:75)
+                                                   at udg.startActivityForResult(PG:177)
+                                                   at android.app.Activity.startActivityForResult(Activity.java:4182)
+</code></pre></li>
+</ul>
+<p>  手机弹框提示：</p>
+<p><img src="http://od8aghac7.bkt.clouddn.com/%E7%9B%B8%E6%9C%BA%E5%BC%82%E5%B8%B8.png" alt="相机异常.png"></p>
+<ul>
+<li>问题就出现在Uri uri = Uri.parse(“file://“+ path); 按照Android N的要求，若要在应用间共享文件，您应发送一项 content://URI，并授予 URI 临时访问权限。<br>而进行此授权的最简单方式是使用 <a href="https://developer.android.com/reference/android/support/v4/content/FileProvider.html" target="_blank" rel="external">FileProvider</a>类。（修改后的伪代码在讲述FileProvider的使用时会写）</li>
+</ul>
+<h2 id="FileProvider-的使用"><a href="#FileProvider-的使用" class="headerlink" title="FileProvider 的使用"></a><a href="https://developer.android.com/reference/android/support/v4/content/FileProvider.html" target="_blank" rel="external">FileProvider</a> 的使用</h2><ul>
+<li><p>官网中关于<a href="https://developer.android.com/reference/android/support/v4/content/FileProvider.html" target="_blank" rel="external">FileProvider</a>有详细描述，我将主要步骤和使用中应该注意的一些问题大概的说一下。</p>
+</li>
+<li><p>1.在manifest中添加provider</p>
+<pre><code>  &lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+      package=&quot;cn.lovexiaoai.myapp&quot;&gt;
+      &lt;application
+          ...&gt;
+          &lt;provider
+              android:name=&quot;android.support.v4.content.FileProvider&quot;
+              android:authorities=&quot;cn.lovexiaoai.myapp.fileprovider&quot;
+              android:grantUriPermissions=&quot;true&quot;
+              android:exported=&quot;false&quot;&gt;
+              &lt;meta-data
+                  android:name=&quot;android.support.FILE_PROVIDER_PATHS&quot;
+                  android:resource=&quot;@xml/filepaths&quot; /&gt;
+          &lt;/provider&gt;
+          ...
+      &lt;/application&gt;
+  &lt;/manifest&gt;
+
+//exported:要求必须为false，为true则会报安全异常。
+//grantUriPermissions:true，表示授予 URI 临时访问权限。
+</code></pre></li>
+</ul>
+<ul>
+<li><p>2.资源文件下创建相应的xml文件（如上：则创建filepaths.xml）。</p>
+<pre><code>&lt;paths&gt;
+  &lt;external-path path=&quot;images&quot; name=&quot;camera_photos&quot; /&gt;
+&lt;/paths&gt;
+</code></pre><ul>
+<li><files-path>代表的根目录： <a href="https://developer.android.com/reference/android/content/Context.html?hl=zh-tw#getFilesDir(" target="_blank" rel="external">Context.getFilesDir()</a>)</files-path></li>
+</ul>
+<ul>
+<li><p><external-path>代表的根目录: <a href="https://developer.android.com/reference/android/os/Environment.html?hl=zh-tw#getExternalStorageDirectory(" target="_blank" rel="external">Environment.getExternalStorageDirectory()</a>)</external-path></p>
+</li>
+<li><p><cache-path>代表的根目录: <a href="https://developer.android.com/reference/android/content/Context.html?hl=zh-tw#getCacheDir(" target="_blank" rel="external">getCacheDir()</a>)</cache-path></p>
+</li>
+</ul>
+</li>
+<li><p>==注意==</p>
+<pre><code>&lt;external-path path=&quot;images/&quot; name=&quot;camera_photos&quot; /&gt;
+</code></pre><p>这个联合起来的意思就是：可以访问外部存储目录下，images文件夹下的文件。<br>就是说，我可以将这个文件夹下（以我的测试机为例:/storage/emulated/0/images）的所有文件传递给图片编辑页面。<br>但是，因为有很多时候，图片来源不确定，而且每款手机的相册所在的文件名称也可能不一样，如果一一添加的话，很麻烦，而且容易遗漏，这里，我用了一个简单的方法，很方便。代码如下，这样的话，我可以传递外部存储设备根目录下的任意一张图片了（包括其子目录）</p>
+  <external-path path="" name="camera_photos">
+
+
+</external-path></li>
+</ul>
+<ul>
+<li><p>3 FileProvider</p>
+<pre><code>File file = new File(&quot;/storage/emulated/0/Pictures/Screenshots/img_test.jpg&quot;);
+
+//主要修改就在下面3行
+
+  /* getUriForFile(Context context, String authority, File file):此处的authority需要和manifest里面保持一致。
+  photoURI打印结果：content://cn.lovexiaoai.myapp.fileprovider/camera_photos/Pictures/Screenshots/testImg.png 。
+  这里的camera_photos:对应filepaths.xml中的name
+  */
+  Uri photoURI = FileProvider.getUriForFile(context, &quot;cn.lovexiaoai.myapp.fileprovider&quot;, file);
+
+   /* 这句要记得写：这是申请权限，之前因为没有添加这个，打开裁剪页面时，一直提示“无法修改低于50*50像素的图片”，
+    开始还以为是图片的问题呢，结果发现是因为没有添加FLAG_GRANT_READ_URI_PERMISSION。
+    如果关联了源码，点开FileProvider的getUriForFile()看看（下面有），注释就写着需要添加权限。
+    */
+  intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);  
+  intent.setDataAndType(photoURI, &quot;image/*&quot;);
+
+  intent.setDataAndType(uri, &quot;image/*&quot;);
+  intent.putExtra(&quot;crop&quot;, &quot;true&quot;);
+  intent.putExtra(&quot;outputX&quot;, 80);
+  intent.putExtra(&quot;outputY&quot;, 80);
+  intent.putExtra(&quot;return-data&quot;, false);
+  context.startActivityForResult(intent, 1);
+</code></pre></li>
+</ul>
+<p> 下面FileProvider的getUriForFile()方法的注释:</p>
+<pre><code>/** 
+    * Return a content URI for a given {@link File}. Specific temporary
+    * permissions for the content URI can be set with
+    * {@link Context#grantUriPermission(String, Uri, int)}, or added
+    * to an {@link Intent} by calling {@link Intent#setData(Uri) setData()} and then
+    * {@link Intent#setFlags(int) setFlags()}; in both cases, the applicable flags are
+    * {@link Intent#FLAG_GRANT_READ_URI_PERMISSION} and
+    * {@link Intent#FLAG_GRANT_WRITE_URI_PERMISSION}. A FileProvider can only return a
+    * &lt;code&gt;content&lt;/code&gt; {@link Uri} for file paths defined in their &lt;code&gt;&lt;paths&gt;&lt;/code&gt;
+    * meta-data element. See the Class Overview for more information.
+    *
+    * @param context A {@link Context} for the current component.
+    * @param authority The authority of a {@link FileProvider} defined in a
+    *            {@code &lt;provider&gt;} element in your app&apos;s manifest.
+    * @param file A {@link File} pointing to the filename for which you want a
+    * &lt;code&gt;content&lt;/code&gt; {@link Uri}.
+    * @return A content URI for the file.
+    * @throws IllegalArgumentException When the given {@link File} is outside
+    * the paths supported by the provider.
+    */
+   public static Uri getUriForFile(Context context, String authority, File file) {
+       final PathStrategy strategy = getPathStrategy(context, authority);
+       return strategy.getUriForFile(file);
+   }
+</code></pre><ul>
+<li>关于FileProvider我也是现学现用，如果有什么不对的地方，还望大家指正~</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[面试总结-Java基础(一)]]></title>
+      <url>http://lovexiaoai.cn/2016/09/09/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93-Java%E5%9F%BA%E7%A1%80(%E4%B8%80)/</url>
+      <content type="html"><![CDATA[<p><a href="http://www.jianshu.com/p/f3fdbcaf7e83" target="_blank" rel="external">我的简书: 面试总结-Java基础(一)</a></p>
+<ul>
+<li>之前学习Java基础的时候做的一些笔记，稍微整理了一下，也方便以后看。不过这里都是一些较为基础的Java知识，后期有时间，会针对里面的泛型，多线程，算法，nio 等模块进行更深入的解析。</li>
+<li>如果有写错的地方，还望指出，一定及时更正。</li>
+</ul>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul>
+<li>1 switch支持的类型：byte, short, int, char, enum,</li>
+</ul>
+<a id="more"></a>
+<pre><code>注意：不支持long,double，JDK7之后，开始支持String。
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//简单示例</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... args)</span> </span>&#123;</div><div class="line">        Demo demo = Demo.A;</div><div class="line">        <span class="keyword">switch</span> (demo) &#123;</div><div class="line">            <span class="keyword">case</span> A:</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> B:</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">enum</span> Demo &#123;</div><div class="line">        A,</div><div class="line">        B,</div><div class="line">        C</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>2 if和switch的区别：</p>
+<p>  if ：1.对具体的值进行判断  2.对区间判断  3.对运算结果是boolean类型的表达式进行判断</p>
+<p>  switch :1.对具体的值进行判断；2.值的个数通常是固定的。</p>
+<p>  对于几个固定值的判断，建议使用switch语句，因为switch语句会将具体的答案加载进内存，相对高效一点。</p>
+</li>
+<li>重载和重写的区别<ul>
+<li>重载：允许存在一个以上的同名函数，只要它们的参数类型不同即可。</li>
+<li>重写：当子类继承父类，沿袭了父类的功能到子类中，子类虽具备该功能，但功能内容不一致，这是使用覆盖特性，保留父类的功能定义，并重写功能内容。</li>
+</ul>
+</li>
+<li><p>单例模式 </p>
+<ul>
+<li><p>饿汉式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> Single s = <span class="keyword">new</span> Single ( ) ;</div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="title">Single</span> <span class="params">( )</span> </span>&#123; &#125;  </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single <span class="title">getInstance</span> <span class="params">()</span> </span></div><div class="line">        &#123;</div><div class="line">        <span class="keyword">return</span> s ;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>懒汉式</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Single</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single <span class="title">getInstance</span> <span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> ( s== <span class="keyword">null</span> )&#123;</div><div class="line">            <span class="keyword">synchronized</span> (Single.class)&#123;<span class="comment">//锁不读可以提高效率</span></div><div class="line">            <span class="keyword">if</span> ( s== <span class="keyword">null</span> )&#123;</div><div class="line">                s = <span class="keyword">new</span> Single () ;</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">        <span class="keyword">return</span> s ;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>特殊关键字：final</p>
+<pre><code>1.    可以修饰类、函数、变量；
+2.    被final修饰的类不可以被继承。为了避免被继承，被子类复写。final class Demo { }
+3.    被final修饰的方法不可以被复写。final void show () { }
+4.    被final 修饰的变量是一个常量，只能赋值一次。
+5.    内部类定义在类中的局部位置上时，只能访问该局部被final修饰的局部变量。
+</code></pre></li>
+<li><p>异常：</p>
+<pre><code>try{}catch(){}finally{}
+1.在catch中return(),finally{}会不会执行？
+答：会，会在return之前执行。
+2.finally()在什么情况下不会执行
+答：只有一种情况不会执行，当执行到System.exit(0)时，finally不会执行。
+</code></pre></li>
+<li><p>常见Runtime异常：</p>
+<pre><code>ArithmeticException, ClassCastException, IllegalArgumentException, 
+IndexOutOfBoundsException, NullPointerException, 
+</code></pre></li>
+<li>访问权限</li>
+</ul>
+<p><img src="http://od8aghac7.bkt.clouddn.com/%E6%9D%83%E9%99%90.png" alt="权限.png"></p>
+<h2 id="Java静态代码块、构造函数、构造代码块"><a href="#Java静态代码块、构造函数、构造代码块" class="headerlink" title="Java静态代码块、构造函数、构造代码块"></a>Java静态代码块、构造函数、构造代码块</h2><ul>
+<li>先看下面一段代码，运行Test，会打印什么？</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> test;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... args)</span> </span>&#123;</div><div class="line">		TestA a;</div><div class="line">		a = <span class="keyword">new</span> TestA();</div><div class="line">		a = <span class="keyword">new</span> TestA();</div><div class="line">        TestA aa = <span class="keyword">new</span> TestA();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestA</span> </span>&#123;</div><div class="line">	&#123;</div><div class="line">		System.out.println(<span class="string">"TestA code create"</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> TestB b = <span class="keyword">new</span> TestB();</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> TestC c = <span class="keyword">new</span> TestC();</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TestA</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"TestA create"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">static</span> &#123;</div><div class="line">		System.out.println(<span class="string">"TestA static create"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestB</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TestB</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"TestB create"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestC</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TestC</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"TestC create"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>打印结果：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">TestC create</div><div class="line">TestA <span class="keyword">static</span> create</div><div class="line">TestA code create</div><div class="line">TestB create</div><div class="line">TestA create</div><div class="line">TestA code create</div><div class="line">TestB create</div><div class="line">TestA create</div><div class="line">TestA code create</div><div class="line">TestB create</div><div class="line">TestA create</div></pre></td></tr></table></figure>
+<ul>
+<li><p>static特点：</p>
+<pre><code>1.    随着类的加载而加载（随着类的消失而消失，生命周期最长）
+2.    优先于对象存在
+3.    被所有对象所共享
+4.    可以直接被类所调用
+5.    static是一个修饰符，用于修饰成员
+</code></pre></li>
+<li><p>构造代码块 </p>
+<pre><code>作用：给对象进行初始化，对象一建立就运行，而且优先于构造函数执行。
+
+和构造函数的区别：
+构造代码块是给所有对象进行统一初始化；而构造函数是给对应的对象初始化
+构造代码块中定义的是不同对象共性的初始化内容
+</code></pre></li>
+<li><p>静态代码块</p>
+<pre><code>static
+{
+    静态代码块中的执行语句；
+}
+特点：随着类的加载而执行，只执行一次（再new一个对象也不会执行，类只加载一次），
+如果定义在有主函数的类中，则优先于主函数执行。用于给类进行初始化。
+有些类不用创建对象，无法用构造函数初始化，就通过静态代码块初始化。
+
+执行顺序：静态代码块先执行，如果有对象，构造代码块先执行，然后是构造函数。
+如果没有对象，则构造代码块和构造函数都不会执行。
+</code></pre></li>
+</ul>
+<h2 id="Java-封装、继承、多态"><a href="#Java-封装、继承、多态" class="headerlink" title="Java-封装、继承、多态"></a>Java-封装、继承、多态</h2><ul>
+<li><p>抽象类的特点：</p>
+<pre><code>1.    抽象方法一定在抽象类中。
+2.    抽象方法和抽象类都必须被abstract关键字修饰。
+3.    抽象类不可以用new创建对象，因为调用抽象方法没有意义。
+4.    抽象类中的抽象方法要被使用，必须由子类复写所有的抽象方法后，建立子类对象调用。如果子类只覆盖了部分抽象方法，那么该子类还是一个抽象类。强迫子类复写，强迫子类做一些事。
+5.    抽象类中可以不定义抽象方法，如果不定义抽象方法，那么抽象类的功能就是为了不让该类建立对象。
+</code></pre></li>
+<li><p>抽象关键字不可以和哪些关键字共存？</p>
+<pre><code>答：（1）private不能：抽象方法就是给子类覆盖的，私有了就不能覆盖了。
+    （2）static不能：static可以直接用类名调用，而调用抽象方法没有意义。
+    （3）final 不能：final修饰的方法不可以被复写，修饰的类不可以被继承。与abstract冲突。
+</code></pre></li>
+</ul>
+<ul>
+<li><p>接口的特点</p>
+<pre><code>●    接口是对外暴露的规则。
+●    接口是程序的功能扩展。
+●    接口可以多实现。
+●    类与接口直接是实现关系，而且类可以继承一个类的同时实现多个接口。
+●    接口与接口之间可以有继承关系，可以多继承。
+     因为接口没有方法体，不会存在两个父类出现同一个方法但是方法体不同的情况，
+     不会引起冲突，如下：
+</code></pre></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">implements</span> <span class="title">d</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... args)</span> </span>&#123;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">as</span><span class="params">()</span> </span>&#123;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">d</span> <span class="keyword">extends</span> <span class="title">e</span>,<span class="title">f</span> </span>&#123;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">f</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">as</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">e</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">as</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>接口和抽象类的异同点：</p>
+<pre><code> 相同点：都是不断向上抽取而来的。不可以被实例化
+
+不同点：
+ 1.    抽象类需要被继承，而且只能单继承；接口需要被实现，而且可以多实现
+ 2.    抽象类中可以定义抽象方法和非抽象方法，子类继承后，可以直接使用非抽象方法；
+       接口只能定义抽象方法，必须有子类实现。
+ 3.    抽象类的继承，是is a关系，在定义该体系的基本共性内容；
+       接口的实现是like a 关系，在定义体系额外功能。
+</code></pre></li>
+</ul>
+<ul>
+<li><p>继承</p>
+<pre><code>子类的实例化过程：
+结论：子类的所有的构造函数，默认都会访问父类中空参数构造函数，因为子类中每一个构造函数内的第一行都有一句隐式的super() ;
+当父类中没有空参数的构造函数时，子类必须手动通过super或者this语句形式来指定要访问的构造函数。
+当然：子类的构造函数第一行也可以手动指定this语句来访问本类中的构造函数，
+子类中至少会有一个构造函数会访问到父类中的构造函数。
+</code></pre></li>
+<li><p>对象的初始化过程，见下图：</p>
+</li>
+</ul>
+<p><img src="http://od8aghac7.bkt.clouddn.com/%E5%AF%B9%E8%B1%A1%E5%88%9D%E5%A7%8B%E5%8C%96%E8%BF%87%E7%A8%8B.png" alt="对象初始化过程.png"></p>
+<p>打印结果：</p>
+<p><img src="http://od8aghac7.bkt.clouddn.com/%E6%89%93%E5%8D%B0%E7%BB%93%E6%9E%9C.png" alt="打印结果.png"></p>
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><ul>
+<li><p>关于线程这块，后期有时间会写一个完整的深入的文章，这里写的都是比较简单基础的线程的一些知识。</p>
+</li>
+<li><p>创建线程的两种方式：</p>
+</li>
+</ul>
+<pre><code>1 继承Thread类。
+    ①.定义类继承Thread；
+    ②.复写父类中的方法；目的：将自定义代码存储在run方法中，让线程运行。
+    ③.调用线程的start方法，该方法有两个作用：启动线程，调用run方法
+2 实现Runnable接口
+    1.    定义类实现Runnable接口。
+    2.    覆盖Runnable接口中的run方法。
+    3.    通过Thread类建立线程对象。
+    4.    将Runnable接口的子类对象作为实际参数传递给Thread类的构造函数。
+    5.    调用Thread类的start方法开启线程并调用Runnable接口子类的run方法。
+</code></pre><ul>
+<li><p>实现方式和继承方式有什么区别？</p>
+<pre><code>1.    实现方式相比继承方式的好处：
+避免了单继承的局限性（单继承只能继承一个父类）。在定义线程时，建议使用实现方式。
+2.存放代码的位置不一样：
+继承Thread：线程代码存放Thread子类的run方法中
+实现Runnable，线程代码存在接口的子类的run方法。
+</code></pre></li>
+<li><p>实现Runnable接口的好处：</p>
+<pre><code>1，将线程的任务从线程的子类中分离出来，进行了单独的封装。
+按照面向对象的思想将任务的封装成对象。
+
+2，避免了java单继承的局限性。
+</code></pre></li>
+</ul>
+<ul>
+<li><p>同步的两种表现形式：</p>
+<ul>
+<li><p>1 同步代码块</p>
+<p>  synchronized(对象){<br>  需要被同步的代码；<br>}</p>
+</li>
+<li><p>2 同步函数。</p>
+<p>  将synchronized关键字作为修饰符放在函数上。</p>
+<p>  public synchronized void add()</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>* 同步函数用的是哪一个锁：函数需要被对象调用，那么该函数都有一个所属对象引用，就是this，所以同步函数使用的锁是this（对象）
+
+* JDK1.5中提供了多线程升级解决方案，将同步synchronized替换成实现Lock操作，将Object中的wait，notify，notifyAll，替换成了Condition对象的await(),signal(),signalAll()，该对象可以通过Lock锁进行获取。
+</code></pre><ul>
+<li><p>停止线程</p>
+<pre><code>原理：run方法结束
+1.    使用intrrupt()方法。该方法是结束线程的冻结状态，使线程回到运行状态中来。
+当线程处于冻结状态，就不会结束读取到标记，那么线程就不会结束。
+当没有指定的方式让冻结的线程恢复到运行状态时，这时需要对冻结进行清除。
+强制让线程恢复到运行状态中来，这样就可以操作标记让线程结束。
+
+2.    定义循环结束标记。线程运行代码一般都是循环，只要控制了循环即可。
+</code></pre></li>
+<li><p>线程常见方法</p>
+<pre><code>1 setDeamon() 守护线程：setDaemon(ture) ;
+  也称后台线程，当前台线程执行时后台线程也在执行，但是当前台线程全部执行完关闭时，
+  后台线程也会跟着自动关闭，jvm退出。
+  ！！该方法必须在启动线程前调用。
+ 2 join()等待该线程终止：一般用于临时加入线程。
+  当A线程执行到了B线程的.join()方法时，A就会等待，等B线程都执行完，A才会执行
+3 yield()方法：释放执行权，让其他线程运行。
+  暂停当前正在执行的线程对象，并执行其他线程。
+</code></pre></li>
+<li><p>一个死锁的demo</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> flag;</div><div class="line">	Test(<span class="keyword">boolean</span> flag) &#123;</div><div class="line">		<span class="keyword">this</span>.flag = flag;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">		<span class="keyword">if</span> (flag) &#123;</div><div class="line">			<span class="keyword">while</span> (<span class="keyword">true</span>)</div><div class="line">				<span class="keyword">synchronized</span> (MyLock.locka) &#123;</div><div class="line">					System.out.println(Thread.currentThread().getName()</div><div class="line">							+ <span class="string">"..if   locka...."</span>);</div><div class="line">					<span class="keyword">synchronized</span> (MyLock.lockb) &#123;</div><div class="line">						System.out.println(Thread.currentThread().getName()</div><div class="line">								+ <span class="string">"..if   lockb...."</span>);</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">while</span> (<span class="keyword">true</span>)</div><div class="line">				<span class="keyword">synchronized</span> (MyLock.lockb) &#123;</div><div class="line">					System.out.println(Thread.currentThread().getName()</div><div class="line">							+ <span class="string">"..else  lockb...."</span>);</div><div class="line">					<span class="keyword">synchronized</span> (MyLock.locka) &#123;</div><div class="line">						System.out.println(Thread.currentThread().getName()</div><div class="line">								+ <span class="string">"..else   locka...."</span>);</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyLock</span> </span>&#123;</div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Object locka = <span class="keyword">new</span> Object();</div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Object lockb = <span class="keyword">new</span> Object();</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DeadLockTest</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Test a = <span class="keyword">new</span> Test(<span class="keyword">true</span>);</div><div class="line">		Test b = <span class="keyword">new</span> Test(<span class="keyword">false</span>);</div><div class="line">		Thread t1 = <span class="keyword">new</span> Thread(a);</div><div class="line">		Thread t2 = <span class="keyword">new</span> Thread(b);</div><div class="line">		t1.start();</div><div class="line">		t2.start();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>wait和sleep的区别</p>
+<pre><code>1. wait 可以指定时间也可以不指定。sleep必须指定时间。
+2. 在同步中，对CPU的执行权和锁的处理不同：
+    wait：释放执行权，释放锁
+    sleep：释放执行权，不释放锁
+</code></pre></li>
+</ul>
+<ul>
+<li><p>StringBuffer和StringBuilder的区别</p>
+<p>  StringBuffer是线程同步（安全）。如果是单线程，效率就比较低<br>  StringBuilder是线程不同步。</p>
+</li>
+</ul>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p><img src="http://od8aghac7.bkt.clouddn.com/Java%E9%9B%86%E5%90%88%E5%85%B3%E7%B3%BB%E5%9B%BE.png" alt="Java集合关系图.png"></p>
+<h3 id="Collection：单列集合"><a href="#Collection：单列集合" class="headerlink" title="Collection：单列集合"></a>Collection：单列集合</h3><ul>
+<li><p>List 和 set</p>
+<pre><code>List：元素是有序的，元素可以重复，因为该集合体系有索引
+Set：元素是无序的，元素不可以重复（存入和取出的顺序不一定一致）。
+List特有方法：凡是可以操作角标的方法都是该体系特有的方法
+</code></pre></li>
+</ul>
+<ul>
+<li><p>List中常见的三个子类</p>
+<pre><code>1. ArrayList ：底层的数据使用的是数组结构。
+特点：查询速度很快，但是增删稍慢。线程不同步，效率高 。
+可变长度数组，默认容量为10的空列表，如果超过了，则50%的增加
+2. LinkedList ：底层的数据使用的是链表数据结构。
+特点：增删数度很快，但是查询稍慢。
+3. Vector：底层使用的是数组结构。枚举是Vector特有的取出方式
+是同步的，效率较低，被ArrayList替代。最早出现的。
+默认容量为10的空列表，如果超过了，则100%的增加.
+</code></pre></li>
+<li><p>LinkedList</p>
+<pre><code>JDK1.6版本出现的:pollFirst()，pollLast()，peekFirst() ，peekLast()，offerFirst()，offerLast()
+(如果链表为空，返回null )。
+分别替代了remove 和 get 和add (如果链表为空，则抛出异常)。
+</code></pre></li>
+</ul>
+<ul>
+<li><p>set常见子类</p>
+<pre><code>1. HashSet：底层数据结构是哈希表。
+HashSet是如何保证元素的唯一性的：
+是通过元素的两个方法，hashCode和equals来完成，如果元素的hashCode值相同，
+才会判断equals是否为true，如果元素的hashCode值不同，不会调用equals 。
+开发时描述事物，需要往集合里面存时，一般都要复写hashCode和equals。
+</code></pre></li>
+<li><p>TreeSet底层的数据结构：二叉树</p>
+<pre><code>保证数据元素唯一性的依据compareTo方法return 0，为0则表示是相同元素 ;
+
+排序的两种方式：
+TreeSet排序的第一种方式：
+让元素自身具备比较性。元素需要实现Comparable接口，覆盖compareTo方法。这种方式也称为元素的自然顺序，或者叫做默认顺序。
+
+TreeSet的第二种排序方式：
+当元素自身不具备比较性时，或具备的比较性不是所需要的，这是就需要让集合自身具备比较性。
+定义一个比较器，将比较器对象作为参数传递给TreeSet集合的构造函数。
+定义一个类，实现Comparator接口，覆盖compare方法
+
+当两种排序都存在时，以比较器为主。
+</code></pre></li>
+</ul>
+<ul>
+<li><p>泛型</p>
+<pre><code>泛型技术是给编译器使用的技术,用于编译时期。确保了类型的安全。
+
+运行时，会将泛型去掉，生成的class文件中是不带泛型的,这个称为泛型的擦除。
+为什么擦除呢？因为为了兼容运行的类加载器。
+泛型的补偿：在类加载器原有基础上，编写一个补偿程序。在运行时，通过反射，
+获取元素的类型进行转换动作。不用使用者在强制转换了。
+</code></pre></li>
+</ul>
+<h3 id="Map：双列集合"><a href="#Map：双列集合" class="headerlink" title="Map：双列集合"></a>Map：双列集合</h3><ul>
+<li><p>常见子类</p>
+<pre><code>Hashtable：底层是哈希表数据结构，不可以存入null键null值，该集合是线程同步的。jdk1.0 ,效率低 。
+HashMap：底层是哈希表数据结构，并允许使用null键null值，该集合不是同步的，jdk1.2 ,效率高。
+TreeMap ：底层是二叉树数据结构，线程不同步，可以给map集合中的键进行排序 。
+Map 和 Set很像 ：其实，Set底层使用了Map集合 。
+</code></pre></li>
+<li><p>map集合的两种取出方式：</p>
+<pre><code>1.Set&lt;K&gt; KeySet：
+将Map中所有的Key存到了Set集合中，因为Set集合具备迭代器。
+所有可以迭代方式取出所有的键，再根据get方法，获取每一个键对应的值
+Map集合的取出原理：将Map集合转成Set集合，再通过迭代器取出
+
+2.Set&lt;Map.Entry&lt;K,V&gt;&gt; 
+entrySet：将Map集合中的映射关系存入到了Set集合中，而这个关系的数据类型就是：Map.Entry。
+Map.Entry ：其实Entry也是一个接口，它是Map接口中的一个内部接口。
+先有Map，才有映射关系，所有Entry类定义在Map内部
+</code></pre></li>
+<li><p>Math类：</p>
+<pre><code>double d = Math.ceil(12.56);// 13.0 。ceil返回大于指定整数的最小整数
+double d1 =Math.floor(12.34);//12.0 。floor返回小于指定数据的最大整数
+long l = Math.round(12.64);//四舍五入
+double d2 = Math.pow(2,3);//幂运算 ：2^3 = 8
+</code></pre></li>
+</ul>
+<h2 id="io"><a href="#io" class="headerlink" title="io"></a>io</h2><ul>
+<li><p>字节流：InputStream（读）  OutputStream（写）</p>
+</li>
+<li><p>RandomAccessFile(断点下载会用到的类)：</p>
+<p>  随机访问文件，自身具备读写的方法。<br>  通过skipBytes(int x),seek(int x)来达到随机访问。</p>
+<p>  seek(int x)：调整对象中指针，指针跳转，可以实现对数据指定位置的读取和写入。</p>
+</li>
+<li><p>IO流体系：</p>
+<pre><code>字符流：
+Reader
+    |--BufferedReader:
+        |--LineNumberReader
+    |--CharArrayReader
+    |--StringReader
+    |--InputStreamReaer
+        |--FileReader
+
+Writer
+    |--BufferedWriter
+    |--CharArrayWriter
+    |--StringWriter
+    |--OutputStreamWriter
+        |--FileWriter
+    |--PrintWriter
+
+字节流：
+InputStream
+    |--FileInputStream:
+    |--FilterInputStream
+        |--BufferedInputStream
+        |--DataInputStream
+    |--ByteArrayInputStream
+    |--ObjectInputStream
+    |--SequenceInputStream
+    |--PipedInputStream
+
+OutputStream
+    |--FileOutputStream
+    |--FilterOutputStream
+        |--BufferedOutputStream
+        |--DataOutputStream
+    |--ByteArrayOutputStream
+    |--ObjectOutputStream
+    |--PipedOutputStream
+    |--PrintStream
+</code></pre></li>
+<li><p>示例：读出C盘下txt文件</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">listDemo_2</span><span class="params">()</span> </span>&#123;</div><div class="line">		File dir = <span class="keyword">new</span> File(<span class="string">"c:\\"</span>);</div><div class="line">		String[] names = dir.list(<span class="keyword">new</span> SuffixFilter(<span class="string">".txt"</span>));</div><div class="line">		<span class="keyword">for</span>(String name : names)&#123;</div><div class="line">			System.out.println(name);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SuffixFilter</span> <span class="keyword">implements</span> <span class="title">FilenameFilter</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> String suffix ;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SuffixFilter</span><span class="params">(String suffix)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>();</div><div class="line">		<span class="keyword">this</span>.suffix = suffix;</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">accept</span><span class="params">(File dir, String name)</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> name.endsWith(suffix);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>示例：深度递归，读出制定目录下的所有文件和文件夹，包括子目录。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileTest</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		File dir = <span class="keyword">new</span> File(<span class="string">"D:\\me\\mime\\RuntimePermissions"</span>);</div><div class="line">		listAll(dir,<span class="number">0</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * </div><div class="line">	 * <span class="doctag">@param</span> dir</div><div class="line">	 * <span class="doctag">@param</span> spaceLevel 这个是为了打印结果好看，与空格有关的参数</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">listAll</span><span class="params">(File dir,<span class="keyword">int</span> spaceLevel)</span> </span>&#123;</div><div class="line">		System.out.println(getSpace(spaceLevel)+dir.getName());</div><div class="line">		<span class="comment">//获取指定目录下当前的所有文件夹或者文件对象</span></div><div class="line">		spaceLevel++;</div><div class="line">		File[] files = dir.listFiles();</div><div class="line">		</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> x=<span class="number">0</span>; x&lt;files.length; x++)&#123;</div><div class="line">			</div><div class="line">			<span class="keyword">if</span>(files[x].isDirectory())&#123;</div><div class="line">				listAll(files[x],spaceLevel);</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span></div><div class="line">				System.out.println(getSpace(spaceLevel)+files[x].getName());</div><div class="line">		&#125;	</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">getSpace</span><span class="params">(<span class="keyword">int</span> spaceLevel)</span> </span>&#123;</div><div class="line">		StringBuilder builder = <span class="keyword">new</span> StringBuilder();</div><div class="line">		builder.append(<span class="string">"|--"</span>);</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> x=<span class="number">0</span>; x&lt;spaceLevel; x++)&#123;</div><div class="line">			builder.insert(<span class="number">0</span>,<span class="string">"|  "</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> builder.toString();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Android6.0动态权限申请步骤以及需要注意的一些坑]]></title>
+      <url>http://lovexiaoai.cn/2016/07/25/%E5%8A%A8%E6%80%81%E6%9D%83%E9%99%90%E7%94%B3%E8%AF%B7/</url>
+      <content type="html"><![CDATA[<h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p><a href="http://www.jianshu.com/p/a51593817825" target="_blank" rel="external">我的简书: Android6.0动态权限申请步骤以及需要注意的一些坑</a></p>
+<p>因为工作需要，简单研究了一下Android6.0权限申请，在Google提供的sample的基础上，写了一个简单的demo。算是自己的笔记吧，可能会比较混乱，主要是方便以后查看。后期有别的问题，随时更新~</p>
+<ul>
+<li><a href="https://github.com/qianxiaoai/RuntimePermissionsDemo/tree/dev" target="_blank" rel="external">本demo github下载地址！！！</a>  </li>
+<li><a href="https://github.com/googlesamples/android-RuntimePermissions" target="_blank" rel="external">Google提供的demo的下载地址</a>  </li>
+<li>6.0权限的基本知识，以下是需要单独申请的权限，共分为9组，每组只要有一个权限申请成功了，就默认整组权限都可以使用了。</li>
+</ul>
+<a id="more"></a>
+<pre><code>group:android.permission-group.CONTACTS
+  permission:android.permission.WRITE_CONTACTS
+  permission:android.permission.GET_ACCOUNTS    
+  permission:android.permission.READ_CONTACTS
+
+group:android.permission-group.PHONE
+  permission:android.permission.READ_CALL_LOG
+  permission:android.permission.READ_PHONE_STATE 
+  permission:android.permission.CALL_PHONE
+  permission:android.permission.WRITE_CALL_LOG
+  permission:android.permission.USE_SIP
+  permission:android.permission.PROCESS_OUTGOING_CALLS
+  permission:com.android.voicemail.permission.ADD_VOICEMAIL
+
+group:android.permission-group.CALENDAR
+  permission:android.permission.READ_CALENDAR
+  permission:android.permission.WRITE_CALENDAR
+
+group:android.permission-group.CAMERA
+  permission:android.permission.CAMERA
+
+group:android.permission-group.SENSORS
+  permission:android.permission.BODY_SENSORS
+
+group:android.permission-group.LOCATION
+  permission:android.permission.ACCESS_FINE_LOCATION
+  permission:android.permission.ACCESS_COARSE_LOCATION
+
+group:android.permission-group.STORAGE
+  permission:android.permission.READ_EXTERNAL_STORAGE
+  permission:android.permission.WRITE_EXTERNAL_STORAGE
+
+group:android.permission-group.MICROPHONE
+  permission:android.permission.RECORD_AUDIO
+
+group:android.permission-group.SMS
+  permission:android.permission.READ_SMS
+  permission:android.permission.RECEIVE_WAP_PUSH
+  permission:android.permission.RECEIVE_MMS
+  permission:android.permission.RECEIVE_SMS
+  permission:android.permission.SEND_SMS
+  permission:android.permission.READ_CELL_BROADCASTS
+</code></pre><ul>
+<li><p>以下是普通权限，只需要在AndroidManifest.xml中申请即可。</p>
+<pre><code>android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
+android.permission.ACCESS_NETWORK_STATE
+android.permission.ACCESS_NOTIFICATION_POLICY
+android.permission.ACCESS_WIFI_STATE
+android.permission.ACCESS_WIMAX_STATE
+android.permission.BLUETOOTH
+android.permission.BLUETOOTH_ADMIN
+android.permission.BROADCAST_STICKY
+android.permission.CHANGE_NETWORK_STATE
+android.permission.CHANGE_WIFI_MULTICAST_STATE
+android.permission.CHANGE_WIFI_STATE
+android.permission.CHANGE_WIMAX_STATE
+android.permission.DISABLE_KEYGUARD
+android.permission.EXPAND_STATUS_BAR
+android.permission.FLASHLIGHT
+android.permission.GET_ACCOUNTS
+android.permission.GET_PACKAGE_SIZE
+android.permission.INTERNET
+android.permission.KILL_BACKGROUND_PROCESSES
+android.permission.MODIFY_AUDIO_SETTINGS
+android.permission.NFC
+android.permission.READ_SYNC_SETTINGS
+android.permission.READ_SYNC_STATS
+android.permission.RECEIVE_BOOT_COMPLETED
+android.permission.REORDER_TASKS
+android.permission.REQUEST_INSTALL_PACKAGES
+android.permission.SET_TIME_ZONE
+android.permission.SET_WALLPAPER
+android.permission.SET_WALLPAPER_HINTS
+android.permission.SUBSCRIBED_FEEDS_READ
+android.permission.TRANSMIT_IR
+android.permission.USE_FINGERPRINT
+android.permission.VIBRATE
+android.permission.WAKE_LOCK
+android.permission.WRITE_SYNC_SETTINGS
+com.android.alarm.permission.SET_ALARM
+com.android.launcher.permission.INSTALL_SHORTCUT
+com.android.launcher.permission.UNINSTALL_SHORTCUT
+</code></pre></li>
+</ul>
+<h2 id="申请步骤"><a href="#申请步骤" class="headerlink" title="申请步骤"></a>申请步骤</h2><ul>
+<li><ol>
+<li>将targetSdkVersion设置为23，注意，如果你将targetSdkVersion设置为&gt;=23，则必须按照Android谷歌的要求，动态的申请权限，如果你暂时不打算支持动态权限申请，则targetSdkVersion最大只能设置为22.</li>
+</ol>
+</li>
+<li><p>2  在AndroidManifest.xml中申请你需要的权限，包括普通权限和需要申请的特殊权限。</p>
+</li>
+<li><p>3.开始申请权限，此处分为3部。</p>
+<ul>
+<li><p>（1）检查是否由此权限checkSelfPermission()，如果已经开启，则直接做你想做的。</p>
+</li>
+<li><p>（2）如果未开启，则判断是否需要向用户解释为何申请权限shouldShowRequestPermissionRationale。</p>
+</li>
+<li>（3）如果需要（即返回true），则可以弹出对话框提示用户申请权限原因，用户确认后申请权限requestPermissions()，如果不需要（即返回false），则直接申请权限requestPermissions()。<br>（这里是一部门代码，底部有比较完善的代码，整个demo可以在github中下载）。</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://od8aghac7.bkt.clouddn.com/%E5%8D%95%E4%B8%AA%E6%9D%83%E9%99%90%E7%94%B3%E8%AF%B7.png" alt="单个权限申请.png"></p>
+<pre><code>     /**
+         * Requests permission.
+         *
+         * @param activity
+         * @param requestCode request code, e.g. if you need request CAMERA permission,parameters is PermissionUtils.CODE_CAMERA
+         */
+        public static void requestPermission(final Activity activity, final int requestCode, PermissionGrant permissionGrant) {
+            if (activity == null) {
+                return;
+            }
+
+            Log.i(TAG, &quot;requestPermission requestCode:&quot; + requestCode);
+            if (requestCode &lt; 0 || requestCode &gt;= requestPermissions.length) {
+                Log.w(TAG, &quot;requestPermission illegal requestCode:&quot; + requestCode);
+                return;
+            }
+
+            final String requestPermission = requestPermissions[requestCode];
+
+            //如果是6.0以下的手机，ActivityCompat.checkSelfPermission()会始终等于PERMISSION_GRANTED，
+        // 但是，如果用户关闭了你申请的权限(如下图，在安装的时候，将一些权限关闭了)，ActivityCompat.checkSelfPermission()则可能会导致程序崩溃(java.lang.RuntimeException: Unknown exception code: 1 msg null)，
+        // 你可以使用try{}catch(){},处理异常，也可以判断系统版本，低于23就不申请权限，直接做你想做的。permissionGrant.onPermissionGranted(requestCode);
+//        if (Build.VERSION.SDK_INT &lt; 23) {
+//            permissionGrant.onPermissionGranted(requestCode);
+//            return;
+//        }
+
+            int checkSelfPermission;
+            try {
+                checkSelfPermission = ActivityCompat.checkSelfPermission(activity, requestPermission);
+            } catch (RuntimeException e) {
+                Toast.makeText(activity, &quot;please open this permission&quot;, Toast.LENGTH_SHORT)
+                        .show();
+                Log.e(TAG, &quot;RuntimeException:&quot; + e.getMessage());
+                return;
+            }
+
+            if (checkSelfPermission != PackageManager.PERMISSION_GRANTED) {
+                Log.i(TAG, &quot;ActivityCompat.checkSelfPermission != PackageManager.PERMISSION_GRANTED&quot;);
+
+
+                if (ActivityCompat.shouldShowRequestPermissionRationale(activity, requestPermission)) {
+                    Log.i(TAG, &quot;requestPermission shouldShowRequestPermissionRationale&quot;);
+                    shouldShowRationale(activity, requestCode, requestPermission);
+
+                } else {
+                    Log.d(TAG, &quot;requestCameraPermission else&quot;);
+                    ActivityCompat.requestPermissions(activity, new String[]{requestPermission}, requestCode);
+                }
+
+            } else {
+                Log.d(TAG, &quot;ActivityCompat.checkSelfPermission ==== PackageManager.PERMISSION_GRANTED&quot;);
+                Toast.makeText(activity, &quot;opened:&quot; + requestPermissions[requestCode], Toast.LENGTH_SHORT).show();
+//得到权限的时候，就可以在回调里面做你想做的事情了
+                permissionGrant.onPermissionGranted(requestCode);
+            }
+        }
+</code></pre><p><img src="http://od8aghac7.bkt.clouddn.com/6.0%E4%BB%A5%E4%B8%8B%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AE%89%E8%A3%85%E7%95%8C%E9%9D%A2.png" alt="6.0以下系统的应用程序安装界面.png"></p>
+<h2 id="备注！！！"><a href="#备注！！！" class="headerlink" title="备注！！！"></a>备注！！！</h2><p> （1）checkSelfPermission：检查是否拥有这个权限<br> （2）requestPermissions：请求权限，一般会弹出一个系统对话框，询问用户是否开启这个权限。<br> （3）shouldShowRequestPermissionRationale：Android原生系统中，如果第二次弹出权限申请的对话框，会出现“以后不再弹出”的提示框，如果用户勾选了，你再申请权限，则shouldShowRequestPermissionRationale返回true，意思是说要给用户一个 解释，告诉用户为什么要这个权限。然而，在实际开发中，需要注意的是，很多手机对原生系统做了修改，比如小米，小米4的6.0的shouldShowRequestPermissionRationale 就一直返回false，而且在申请权限时，如果用户选择了拒绝，则不会再弹出对话框了。。。。 所以说这个地方有坑，我的解决方法是，在回调里面处理，如果用户拒绝了这个权限，则打开本应用信息界面，由用户自己手动开启这个权限。<br>（4）每个应用都有自己的权限管理界面，里面有本应用申请的权限以及各种状态，即使用户已经同意了你申请的权限，他也随时可以关闭</p>
+<p><img src="http://od8aghac7.bkt.clouddn.com/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2.png" alt="权限管理界面.png"></p>
+<h2 id="一次申请多个权限"><a href="#一次申请多个权限" class="headerlink" title="一次申请多个权限"></a>一次申请多个权限</h2><p>其实和申请一个权限是一样的，只是requestPermissions(final @NonNull Activity activity,<br>            final @NonNull String[] permissions, final int requestCode),里面的permissions给的参数多些而已。</p>
+<p><img src="http://od8aghac7.bkt.clouddn.com/%E7%94%B3%E8%AF%B7%E5%A4%9A%E4%B8%AA%E6%9D%83%E9%99%90.png" alt="申请多个权限.png"></p>
+<pre><code>/**
+    * 一次申请多个权限
+    */
+   public static void requestMultiPermissions(final Activity activity, PermissionGrant grant) {
+
+       final List&lt;String&gt; permissionsList = getNoGrantedPermission(activity, false);
+       final List&lt;String&gt; shouldRationalePermissionsList = getNoGrantedPermission(activity, true);
+
+       //TODO checkSelfPermission
+       if (permissionsList == null || shouldRationalePermissionsList == null) {
+           return;
+       }
+       Log.d(TAG, &quot;requestMultiPermissions permissionsList:&quot; + permissionsList.size() + &quot;,shouldRationalePermissionsList:&quot; + shouldRationalePermissionsList.size());
+
+       if (permissionsList.size() &gt; 0) {
+           ActivityCompat.requestPermissions(activity, permissionsList.toArray(new String[permissionsList.size()]),
+                   CODE_MULTI_PERMISSION);
+           Log.d(TAG, &quot;showMessageOKCancel requestPermissions&quot;);
+
+       } else if (shouldRationalePermissionsList.size() &gt; 0) {
+           showMessageOKCancel(activity, &quot;should open those permission&quot;,
+                   new DialogInterface.OnClickListener() {
+                       @Override
+                       public void onClick(DialogInterface dialog, int which) {
+                           ActivityCompat.requestPermissions(activity, shouldRationalePermissionsList.toArray(new String[shouldRationalePermissionsList.size()]),
+                                   CODE_MULTI_PERMISSION);
+                           Log.d(TAG, &quot;showMessageOKCancel requestPermissions&quot;);
+                       }
+                   });
+       } else {
+           grant.onPermissionGranted(CODE_MULTI_PERMISSION);
+       }
+
+   }
+</code></pre><ul>
+<li><p>关于权限请求结果的回调。Activity实现ActivityCompat.OnRequestPermissionsResultCallback接口，重写onRequestPermissionsResult方法。    </p>
+<pre><code>@Override
+ public void onRequestPermissionsResult(final int requestCode, @NonNull String[] permissions,
+                                        @NonNull int[] grantResults) {
+     PermissionUtils.requestPermissionsResult(this, requestCode, permissions, grantResults, mPermissionGrant);
+
+ }
+</code></pre></li>
+</ul>
+<h2 id="整个申请权限工具类代码"><a href="#整个申请权限工具类代码" class="headerlink" title="整个申请权限工具类代码"></a>整个申请权限工具类代码</h2><pre><code>package com.example.android.system.runtimepermissions;
+
+import android.Manifest;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Created by qianxiaoai on 2016/7/7.
+ */
+public class PermissionUtils {
+
+    private static final String TAG = PermissionUtils.class.getSimpleName();
+    public static final int CODE_RECORD_AUDIO = 0;
+    public static final int CODE_GET_ACCOUNTS = 1;
+    public static final int CODE_READ_PHONE_STATE = 2;
+    public static final int CODE_CALL_PHONE = 3;
+    public static final int CODE_CAMERA = 4;
+    public static final int CODE_ACCESS_FINE_LOCATION = 5;
+    public static final int CODE_ACCESS_COARSE_LOCATION = 6;
+    public static final int CODE_READ_EXTERNAL_STORAGE = 7;
+    public static final int CODE_WRITE_EXTERNAL_STORAGE = 8;
+    public static final int CODE_MULTI_PERMISSION = 100;
+
+    public static final String PERMISSION_RECORD_AUDIO = Manifest.permission.RECORD_AUDIO;
+    public static final String PERMISSION_GET_ACCOUNTS = Manifest.permission.GET_ACCOUNTS;
+    public static final String PERMISSION_READ_PHONE_STATE = Manifest.permission.READ_PHONE_STATE;
+    public static final String PERMISSION_CALL_PHONE = Manifest.permission.CALL_PHONE;
+    public static final String PERMISSION_CAMERA = Manifest.permission.CAMERA;
+    public static final String PERMISSION_ACCESS_FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
+    public static final String PERMISSION_ACCESS_COARSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
+    public static final String PERMISSION_READ_EXTERNAL_STORAGE = Manifest.permission.READ_EXTERNAL_STORAGE;
+    public static final String PERMISSION_WRITE_EXTERNAL_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
+
+    private static final String[] requestPermissions = {
+            PERMISSION_RECORD_AUDIO,
+            PERMISSION_GET_ACCOUNTS,
+            PERMISSION_READ_PHONE_STATE,
+            PERMISSION_CALL_PHONE,
+            PERMISSION_CAMERA,
+            PERMISSION_ACCESS_FINE_LOCATION,
+            PERMISSION_ACCESS_COARSE_LOCATION,
+            PERMISSION_READ_EXTERNAL_STORAGE,
+            PERMISSION_WRITE_EXTERNAL_STORAGE
+    };
+
+    interface PermissionGrant {
+        void onPermissionGranted(int requestCode);
+    }
+
+    /**
+     * Requests permission.
+     *
+     * @param activity
+     * @param requestCode request code, e.g. if you need request CAMERA permission,parameters is PermissionUtils.CODE_CAMERA
+     */
+    public static void requestPermission(final Activity activity, final int requestCode, PermissionGrant permissionGrant) {
+        if (activity == null) {
+            return;
+        }
+
+        Log.i(TAG, &quot;requestPermission requestCode:&quot; + requestCode);
+        if (requestCode &lt; 0 || requestCode &gt;= requestPermissions.length) {
+            Log.w(TAG, &quot;requestPermission illegal requestCode:&quot; + requestCode);
+            return;
+        }
+
+        final String requestPermission = requestPermissions[requestCode];
+
+        //如果是6.0以下的手机，ActivityCompat.checkSelfPermission()会始终等于PERMISSION_GRANTED，
+        // 但是，如果用户关闭了你申请的权限，ActivityCompat.checkSelfPermission(),会导致程序崩溃(java.lang.RuntimeException: Unknown exception code: 1 msg null)，
+        // 你可以使用try{}catch(){},处理异常，也可以在这个地方，低于23就什么都不做，
+        // 个人建议try{}catch(){}单独处理，提示用户开启权限。
+//        if (Build.VERSION.SDK_INT &lt; 23) {
+//            return;
+//        }
+
+        int checkSelfPermission;
+        try {
+            checkSelfPermission = ActivityCompat.checkSelfPermission(activity, requestPermission);
+        } catch (RuntimeException e) {
+            Toast.makeText(activity, &quot;please open this permission&quot;, Toast.LENGTH_SHORT)
+                    .show();
+            Log.e(TAG, &quot;RuntimeException:&quot; + e.getMessage());
+            return;
+        }
+
+        if (checkSelfPermission != PackageManager.PERMISSION_GRANTED) {
+            Log.i(TAG, &quot;ActivityCompat.checkSelfPermission != PackageManager.PERMISSION_GRANTED&quot;);
+
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, requestPermission)) {
+                Log.i(TAG, &quot;requestPermission shouldShowRequestPermissionRationale&quot;);
+                shouldShowRationale(activity, requestCode, requestPermission);
+
+            } else {
+                Log.d(TAG, &quot;requestCameraPermission else&quot;);
+                ActivityCompat.requestPermissions(activity, new String[]{requestPermission}, requestCode);
+            }
+
+        } else {
+            Log.d(TAG, &quot;ActivityCompat.checkSelfPermission ==== PackageManager.PERMISSION_GRANTED&quot;);
+            Toast.makeText(activity, &quot;opened:&quot; + requestPermissions[requestCode], Toast.LENGTH_SHORT).show();
+            permissionGrant.onPermissionGranted(requestCode);
+        }
+    }
+
+    private static void requestMultiResult(Activity activity, String[] permissions, int[] grantResults, PermissionGrant permissionGrant) {
+
+        if (activity == null) {
+            return;
+        }
+
+        //TODO
+        Log.d(TAG, &quot;onRequestPermissionsResult permissions length:&quot; + permissions.length);
+        Map&lt;String, Integer&gt; perms = new HashMap&lt;&gt;();
+
+        ArrayList&lt;String&gt; notGranted = new ArrayList&lt;&gt;();
+        for (int i = 0; i &lt; permissions.length; i++) {
+            Log.d(TAG, &quot;permissions: [i]:&quot; + i + &quot;, permissions[i]&quot; + permissions[i] + &quot;,grantResults[i]:&quot; + grantResults[i]);
+            perms.put(permissions[i], grantResults[i]);
+            if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                notGranted.add(permissions[i]);
+            }
+        }
+
+        if (notGranted.size() == 0) {
+            Toast.makeText(activity, &quot;all permission success&quot; + notGranted, Toast.LENGTH_SHORT)
+                    .show();
+            permissionGrant.onPermissionGranted(CODE_MULTI_PERMISSION);
+        } else {
+            openSettingActivity(activity, &quot;those permission need granted!&quot;);
+        }
+
+    }
+
+
+    /**
+     * 一次申请多个权限
+     */
+    public static void requestMultiPermissions(final Activity activity, PermissionGrant grant) {
+
+        final List&lt;String&gt; permissionsList = getNoGrantedPermission(activity, false);
+        final List&lt;String&gt; shouldRationalePermissionsList = getNoGrantedPermission(activity, true);
+
+        //TODO checkSelfPermission
+        if (permissionsList == null || shouldRationalePermissionsList == null) {
+            return;
+        }
+        Log.d(TAG, &quot;requestMultiPermissions permissionsList:&quot; + permissionsList.size() + &quot;,shouldRationalePermissionsList:&quot; + shouldRationalePermissionsList.size());
+
+        if (permissionsList.size() &gt; 0) {
+            ActivityCompat.requestPermissions(activity, permissionsList.toArray(new String[permissionsList.size()]),
+                    CODE_MULTI_PERMISSION);
+            Log.d(TAG, &quot;showMessageOKCancel requestPermissions&quot;);
+
+        } else if (shouldRationalePermissionsList.size() &gt; 0) {
+            showMessageOKCancel(activity, &quot;should open those permission&quot;,
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(activity, shouldRationalePermissionsList.toArray(new String[shouldRationalePermissionsList.size()]),
+                                    CODE_MULTI_PERMISSION);
+                            Log.d(TAG, &quot;showMessageOKCancel requestPermissions&quot;);
+                        }
+                    });
+        } else {
+            grant.onPermissionGranted(CODE_MULTI_PERMISSION);
+        }
+
+    }
+
+
+    private static void shouldShowRationale(final Activity activity, final int requestCode, final String requestPermission) {
+        //TODO
+        String[] permissionsHint = activity.getResources().getStringArray(R.array.permissions);
+        showMessageOKCancel(activity, &quot;Rationale: &quot; + permissionsHint[requestCode], new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ActivityCompat.requestPermissions(activity,
+                        new String[]{requestPermission},
+                        requestCode);
+                Log.d(TAG, &quot;showMessageOKCancel requestPermissions:&quot; + requestPermission);
+            }
+        });
+    }
+
+    private static void showMessageOKCancel(final Activity context, String message, DialogInterface.OnClickListener okListener) {
+        new AlertDialog.Builder(context)
+                .setMessage(message)
+                .setPositiveButton(&quot;OK&quot;, okListener)
+                .setNegativeButton(&quot;Cancel&quot;, null)
+                .create()
+                .show();
+
+    }
+
+    /**
+     * @param activity
+     * @param requestCode  Need consistent with requestPermission
+     * @param permissions
+     * @param grantResults
+     */
+    public static void requestPermissionsResult(final Activity activity, final int requestCode, @NonNull String[] permissions,
+                                                @NonNull int[] grantResults, PermissionGrant permissionGrant) {
+
+        if (activity == null) {
+            return;
+        }
+        Log.d(TAG, &quot;requestPermissionsResult requestCode:&quot; + requestCode);
+
+        if (requestCode == CODE_MULTI_PERMISSION) {
+            requestMultiResult(activity, permissions, grantResults, permissionGrant);
+            return;
+        }
+
+        if (requestCode &lt; 0 || requestCode &gt;= requestPermissions.length) {
+            Log.w(TAG, &quot;requestPermissionsResult illegal requestCode:&quot; + requestCode);
+            Toast.makeText(activity, &quot;illegal requestCode:&quot; + requestCode, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Log.i(TAG, &quot;onRequestPermissionsResult requestCode:&quot; + requestCode + &quot;,permissions:&quot; + permissions.toString()
+                + &quot;,grantResults:&quot; + grantResults.toString() + &quot;,length:&quot; + grantResults.length);
+
+        if (grantResults.length == 1 &amp;&amp; grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Log.i(TAG, &quot;onRequestPermissionsResult PERMISSION_GRANTED&quot;);
+            //TODO success, do something, can use callback
+            permissionGrant.onPermissionGranted(requestCode);
+
+        } else {
+            //TODO hint user this permission function
+            Log.i(TAG, &quot;onRequestPermissionsResult PERMISSION NOT GRANTED&quot;);
+            //TODO
+            String[] permissionsHint = activity.getResources().getStringArray(R.array.permissions);
+            openSettingActivity(activity,  &quot;Result&quot; + permissionsHint[requestCode]);
+        }
+
+    }
+
+    private static void openSettingActivity(final Activity activity, String message) {
+
+        showMessageOKCancel(activity, message, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent();
+                intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                Log.d(TAG, &quot;getPackageName(): &quot; + activity.getPackageName());
+                Uri uri = Uri.fromParts(&quot;package&quot;, activity.getPackageName(), null);
+                intent.setData(uri);
+                activity.startActivity(intent);
+            }
+        });
+    }
+
+
+    /**
+     * @param activity
+     * @param isShouldRationale true: return no granted and shouldShowRequestPermissionRationale permissions, false:return no granted and !shouldShowRequestPermissionRationale
+     * @return
+     */
+    public static ArrayList&lt;String&gt; getNoGrantedPermission(Activity activity, boolean isShouldRationale) {
+
+        ArrayList&lt;String&gt; permissions = new ArrayList&lt;&gt;();
+
+        for (int i = 0; i &lt; requestPermissions.length; i++) {
+            String requestPermission = requestPermissions[i];
+
+
+            //TODO checkSelfPermission
+            int checkSelfPermission = -1;
+            try {
+                checkSelfPermission = ActivityCompat.checkSelfPermission(activity, requestPermission);
+            } catch (RuntimeException e) {
+                Toast.makeText(activity, &quot;please open those permission&quot;, Toast.LENGTH_SHORT)
+                        .show();
+                Log.e(TAG, &quot;RuntimeException:&quot; + e.getMessage());
+                return null;
+            }
+
+            if (checkSelfPermission != PackageManager.PERMISSION_GRANTED) {
+                Log.i(TAG, &quot;getNoGrantedPermission ActivityCompat.checkSelfPermission != PackageManager.PERMISSION_GRANTED:&quot; + requestPermission);
+
+                if (ActivityCompat.shouldShowRequestPermissionRationale(activity, requestPermission)) {
+                    Log.d(TAG, &quot;shouldShowRequestPermissionRationale if&quot;);
+                    if (isShouldRationale) {
+                        permissions.add(requestPermission);
+                    }
+
+                } else {
+
+                    if (!isShouldRationale) {
+                        permissions.add(requestPermission);
+                    }
+                    Log.d(TAG, &quot;shouldShowRequestPermissionRationale else&quot;);
+                }
+
+            }
+        }
+
+        return permissions;
+    }
+
+}
+</code></pre><h2 id="界面调用代码"><a href="#界面调用代码" class="headerlink" title="界面调用代码"></a>界面调用代码</h2><pre><code>package com.example.android.system.runtimepermissions;
+
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.widget.Toast;
+
+import com.example.android.common.logger.Log;
+
+/**
+ * Created by qianxiaoai on 2016/7/8.
+ */
+public class PermissionActivity extends FragmentActivity implements ActivityCompat.OnRequestPermissionsResultCallback{
+    private static final String TAG = PermissionActivity.class.getSimpleName();
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_permission);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        PermissionsFragment fragment = new PermissionsFragment();
+        transaction.replace(R.id.content_fragment, fragment);
+        transaction.commit();
+
+    }
+
+    /**
+     * Called when the &apos;show camera&apos; button is clicked.
+     * Callback is defined in resource layout definition.
+     */
+    public void showCamera(View view) {
+        Log.i(TAG, &quot;Show camera button pressed. Checking permission.&quot;);
+        PermissionUtils.requestPermission(this, PermissionUtils.CODE_CAMERA, mPermissionGrant);
+    }
+
+    public void getAccounts(View view) {
+        PermissionUtils.requestPermission(this, PermissionUtils.CODE_GET_ACCOUNTS, mPermissionGrant);
+    }
+
+    public void callPhone(View view) {
+        PermissionUtils.requestPermission(this, PermissionUtils.CODE_CALL_PHONE, mPermissionGrant);
+    }
+
+    public void readPhoneState(View view) {
+        PermissionUtils.requestPermission(this, PermissionUtils.CODE_READ_PHONE_STATE, mPermissionGrant);
+    }
+
+    public void accessFineLocation(View view) {
+        PermissionUtils.requestPermission(this, PermissionUtils.CODE_ACCESS_FINE_LOCATION, mPermissionGrant);
+    }
+
+    public void accessCoarseLocation(View view) {
+        PermissionUtils.requestPermission(this, PermissionUtils.CODE_ACCESS_COARSE_LOCATION, mPermissionGrant);
+    }
+
+    public void readExternalStorage(View view) {
+        PermissionUtils.requestPermission(this, PermissionUtils.CODE_READ_EXTERNAL_STORAGE, mPermissionGrant);
+    }
+
+    public void writeExternalStorage(View view) {
+        PermissionUtils.requestPermission(this, PermissionUtils.CODE_WRITE_EXTERNAL_STORAGE, mPermissionGrant);
+    }
+
+    public void recordAudio(View view) {
+        PermissionUtils.requestPermission(this, PermissionUtils.CODE_RECORD_AUDIO, mPermissionGrant);
+    }
+
+
+    private PermissionUtils.PermissionGrant mPermissionGrant = new PermissionUtils.PermissionGrant() {
+        @Override
+        public void onPermissionGranted(int requestCode) {
+            switch (requestCode) {
+                case PermissionUtils.CODE_RECORD_AUDIO:
+                    Toast.makeText(PermissionActivity.this, &quot;Result Permission Grant CODE_RECORD_AUDIO&quot;, Toast.LENGTH_SHORT).show();
+                    break;
+                case PermissionUtils.CODE_GET_ACCOUNTS:
+                    Toast.makeText(PermissionActivity.this, &quot;Result Permission Grant CODE_GET_ACCOUNTS&quot;, Toast.LENGTH_SHORT).show();
+                    break;
+                case PermissionUtils.CODE_READ_PHONE_STATE:
+                    Toast.makeText(PermissionActivity.this, &quot;Result Permission Grant CODE_READ_PHONE_STATE&quot;, Toast.LENGTH_SHORT).show();
+                    break;
+                case PermissionUtils.CODE_CALL_PHONE:
+                    Toast.makeText(PermissionActivity.this, &quot;Result Permission Grant CODE_CALL_PHONE&quot;, Toast.LENGTH_SHORT).show();
+                    break;
+                case PermissionUtils.CODE_CAMERA:
+                    Toast.makeText(PermissionActivity.this, &quot;Result Permission Grant CODE_CAMERA&quot;, Toast.LENGTH_SHORT).show();
+                    break;
+                case PermissionUtils.CODE_ACCESS_FINE_LOCATION:
+                    Toast.makeText(PermissionActivity.this, &quot;Result Permission Grant CODE_ACCESS_FINE_LOCATION&quot;, Toast.LENGTH_SHORT).show();
+                    break;
+                case PermissionUtils.CODE_ACCESS_COARSE_LOCATION:
+                    Toast.makeText(PermissionActivity.this, &quot;Result Permission Grant CODE_ACCESS_COARSE_LOCATION&quot;, Toast.LENGTH_SHORT).show();
+                    break;
+                case PermissionUtils.CODE_READ_EXTERNAL_STORAGE:
+                    Toast.makeText(PermissionActivity.this, &quot;Result Permission Grant CODE_READ_EXTERNAL_STORAGE&quot;, Toast.LENGTH_SHORT).show();
+                    break;
+                case PermissionUtils.CODE_WRITE_EXTERNAL_STORAGE:
+                    Toast.makeText(PermissionActivity.this, &quot;Result Permission Grant CODE_WRITE_EXTERNAL_STORAGE&quot;, Toast.LENGTH_SHORT).show();
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
+    /**
+     * Callback received when a permissions request has been completed.
+     */
+    @Override
+    public void onRequestPermissionsResult(final int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        PermissionUtils.requestPermissionsResult(this, requestCode, permissions, grantResults, mPermissionGrant);
+    }
+}
+</code></pre><h2 id="xml布局"><a href="#xml布局" class="headerlink" title="xml布局"></a>xml布局</h2><pre><code>&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+              android:layout_width=&quot;match_parent&quot;
+              android:layout_height=&quot;match_parent&quot;
+              android:paddingLeft=&quot;@dimen/horizontal_page_margin&quot;
+              android:paddingRight=&quot;@dimen/horizontal_page_margin&quot;
+              android:paddingTop=&quot;@dimen/vertical_page_margin&quot;
+              android:paddingBottom=&quot;@dimen/vertical_page_margin&quot;
+              android:orientation=&quot;vertical&quot;
+    &gt;
+
+    &lt;FrameLayout
+        android:id=&quot;@+id/content_fragment&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_weight=&quot;1&quot;/&gt;
+
+    &lt;ScrollView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_weight=&quot;1&quot;&gt;
+
+        &lt;LinearLayout
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:orientation=&quot;vertical&quot;&gt;
+
+            &lt;LinearLayout
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:orientation=&quot;horizontal&quot;&gt;
+
+                &lt;Button
+                    android:layout_width=&quot;wrap_content&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:text=&quot;Camera&quot;
+                    android:id=&quot;@+id/button_camera&quot;
+                    android:onClick=&quot;showCamera&quot;/&gt;
+
+                &lt;Button
+                    android:layout_width=&quot;wrap_content&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:text=&quot;RECORD_AUDIO&quot;
+                    android:onClick=&quot;recordAudio&quot;/&gt;
+            &lt;/LinearLayout&gt;
+
+            &lt;LinearLayout
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:orientation=&quot;horizontal&quot;&gt;
+
+                &lt;Button
+                    android:layout_width=&quot;wrap_content&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:text=&quot;GET_ACCOUNTS&quot;
+                    android:onClick=&quot;getAccounts&quot;/&gt;
+
+                &lt;Button
+                    android:layout_width=&quot;wrap_content&quot;
+                    android:layout_height=&quot;wrap_content&quot;
+                    android:text=&quot;CALL_PHONE&quot;
+                    android:onClick=&quot;callPhone&quot;/&gt;
+            &lt;/LinearLayout&gt;
+
+            &lt;Button
+                android:layout_width=&quot;wrap_content&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;PERMISSION_READ_PHONE_STATE&quot;
+                android:onClick=&quot;readPhoneState&quot;/&gt;
+
+            &lt;Button
+                android:layout_width=&quot;wrap_content&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;ACCESS_FINE_LOCATION&quot;
+                android:onClick=&quot;accessFineLocation&quot;/&gt;
+
+            &lt;Button
+                android:layout_width=&quot;wrap_content&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;ACCESS_COARSE_LOCATION&quot;
+                android:onClick=&quot;accessCoarseLocation&quot;/&gt;
+
+            &lt;Button
+                android:layout_width=&quot;wrap_content&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;READ_EXTERNAL_STORAGE&quot;
+                android:onClick=&quot;readExternalStorage&quot;/&gt;
+
+            &lt;Button
+                android:layout_width=&quot;wrap_content&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;WRITE_EXTERNAL_STORAGE&quot;
+                android:onClick=&quot;writeExternalStorage&quot;/&gt;
+
+        &lt;/LinearLayout&gt;
+    &lt;/ScrollView&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre><h2 id="清单文件申请的权限"><a href="#清单文件申请的权限" class="headerlink" title="清单文件申请的权限"></a>清单文件申请的权限</h2><pre><code>&lt;uses-permission android:name=&quot;android.permission.CAMERA&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.CALL_PHONE&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.SEND_SMS&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.READ_SMS&quot;/&gt;
+
+  &lt;uses-permission android:name=&quot;android.permission.GET_ACCOUNTS&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.RECORD_AUDIO&quot;/&gt;
+</code></pre><h2 id="部分-资源文件"><a href="#部分-资源文件" class="headerlink" title="部分 资源文件"></a>部分 资源文件</h2><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;resources&gt;
+    &lt;string-array name=&quot;permissions&quot;&gt;
+        &lt;item&gt;@string/permission_recode_audio_hint&lt;/item&gt;
+        &lt;item&gt;@string/permission_get_accounts_hint&lt;/item&gt;
+        &lt;item&gt;@string/permission_read_phone_hint&lt;/item&gt;
+        &lt;item&gt;@string/permission_call_phone_hint&lt;/item&gt;
+        &lt;item&gt;@string/permission_camera_hint&lt;/item&gt;
+        &lt;item&gt;@string/permission_access_fine_location_hint&lt;/item&gt;
+        &lt;item&gt;@string/permission_access_coarse_location_hint&lt;/item&gt;
+        &lt;item&gt;@string/permission_read_external_hint&lt;/item&gt;
+        &lt;item&gt;@string/permission_white_external_hint&lt;/item&gt;
+    &lt;/string-array&gt;
+&lt;/resources&gt;
+
+ &lt;string name=&quot;permission_get_accounts_hint&quot;&gt;没有此权限，无法开启这个功能，请开启权限。PERMISSION_GET_ACCOUNTS&lt;/string&gt;
+    &lt;string name=&quot;permission_read_phone_hint&quot;&gt;没有此权限，无法开启这个功能，请开启权限。PERMISSION_READ_PHONE_STATE&lt;/string&gt;
+    &lt;string name=&quot;permission_call_phone_hint&quot;&gt;没有此权限，无法开启这个功能，请开启权限。PERMISSION_CALL_PHONE&lt;/string&gt;
+    &lt;string name=&quot;permission_camera_hint&quot;&gt;没有此权限，无法开启这个功能，请开启权限。PERMISSION_CAMERA&lt;/string&gt;
+    &lt;string name=&quot;permission_access_fine_location_hint&quot;&gt;没有此权限，无法开启这个功能，请开启权限。PERMISSION_ACCESS_FINE_LOCATION&lt;/string&gt;
+    &lt;string name=&quot;permission_access_coarse_location_hint&quot;&gt;没有此权限，无法开启这个功能，请开启权限。PERMISSION_ACCESS_COARSE_LOCATION&lt;/string&gt;
+    &lt;string name=&quot;permission_read_external_hint&quot;&gt;没有此权限，无法开启这个功能，请开启权限。PERMISSION_READ_EXTERNAL_STORAGE&lt;/string&gt;
+    &lt;string name=&quot;permission_white_external_hint&quot;&gt;没有此权限，无法开启这个功能，请开启权限。PERMISSION_WRITE_EXTERNAL_STORAGE&lt;/string&gt;
+    &lt;string name=&quot;permission_recode_audio_hint&quot;&gt;没有此权限，无法开启这个功能，请开启权限。PERMISSION_RECORD_AUDIO&lt;/string&gt;
+</code></pre>]]></content>
+    </entry>
+    
+  
+  
+</search>

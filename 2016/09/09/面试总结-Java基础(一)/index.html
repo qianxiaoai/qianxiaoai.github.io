@@ -95,7 +95,7 @@
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: undefined
+        search: true
     }
 </script>
 
@@ -141,6 +141,13 @@
         <p class="header-subtitle">开心就好~</p>
         
 
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
         
 
 
@@ -708,15 +715,15 @@ OutputStream
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/09/09/手工/">
-                    手工制作
+                <a href="/2016/09/09/Android7.0须知--应用间共享文件/">
+                    Android7.0须知--应用间共享文件（FileProvider）
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/09/Android7.0须知--应用间共享文件/">
-                    Android7.0须知--应用间共享文件（FileProvider）
+                <a href="/2016/07/25/动态权限申请/">
+                    Android6.0动态权限申请步骤以及需要注意的一些坑
                 </a>
             </div>
         
@@ -803,7 +810,7 @@ OutputStream
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/09/09/手工/" title="上一篇: 手工制作">
+            <a href="/2016/09/09/Android7.0须知--应用间共享文件/" title="上一篇: Android7.0须知--应用间共享文件（FileProvider）">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -811,13 +818,13 @@ OutputStream
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/09/Android7.0须知--应用间共享文件/" title="下一篇: Android7.0须知--应用间共享文件（FileProvider）">
+            <a href="/2016/07/25/动态权限申请/" title="下一篇: Android6.0动态权限申请步骤以及需要注意的一些坑">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/21/项目中用到的那些方便流行的库-强烈推荐/">项目中用到的那些方便流行的库-强烈推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/09/手工/">手工制作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/09/面试总结-Java基础(一)/">面试总结-Java基础(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/09/Android7.0须知--应用间共享文件/">Android7.0须知--应用间共享文件（FileProvider）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/25/动态权限申请/">Android6.0动态权限申请步骤以及需要注意的一些坑</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/21/项目中用到的那些方便流行的库-强烈推荐/">项目中用到的那些方便流行的库-强烈推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/09/手工/">手工制作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/09/Android7.0须知--应用间共享文件/">Android7.0须知--应用间共享文件（FileProvider）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/09/面试总结-Java基础(一)/">面试总结-Java基础(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/25/动态权限申请/">Android6.0动态权限申请步骤以及需要注意的一些坑</a></li></ul>
 
 
 
