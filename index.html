@@ -289,12 +289,12 @@
       
           
               <p><a href="http://www.jianshu.com/p/6db1a5e84d67">我的简书：项目中用到的那些方便流行的库-强烈推荐</a></p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><ul>
 <li>因为公司其他项目需要帮忙，项目紧张，我们组过去帮忙，连续加班N久，导致都没时间写博客，现在终于有时间，继续奋斗。</li>
 <li>本文主要对我们项目中的使用过的一些库流行库做些介绍，后期再对其中的一些库，如RxJava，RxAndroid，retrofit ，androidannotations，react-native，做细节的分析，到时候再附上使用的demo。</li>
 <li>本文中提到的库，都是目前流行的，而且使用量比较大，是非常好用的库，强烈推荐~</li>
 </ul>
-<h2 id="Rx系列"><a href="#Rx系列" class="headerlink" title="Rx系列"></a>Rx系列</h2><ul>
+<h1 id="Rx系列"><a href="#Rx系列" class="headerlink" title="Rx系列"></a>Rx系列</h1><ul>
 <li>ReactiveX是ReactiveExtensions的缩写，简写为Rx，Rx是一个编程模型，目标是提供一致的编程接口，帮助开发者更方便的处理异步数据流，Rx库支持 .NET、JavaScript和C++，java，RxJava就是对java语言的支持。</li>
 <li><a href="http://top.caibaojian.com/2444">Rx相关介绍</a></li>
 </ul>
@@ -404,80 +404,6 @@
 
 
   
-    <article id="post-Android7.0须知--应用间共享文件" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/09/Android7.0须知--应用间共享文件/" class="article-date">
-      <time datetime="2016-09-09T03:46:56.000Z" itemprop="datePublished">2016-09-09</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/09/Android7.0须知--应用间共享文件/">Android7.0须知--应用间共享文件（FileProvider）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="关于Android-N"><a href="#关于Android-N" class="headerlink" title="关于Android N"></a>关于Android N</h2><p><a href="http://www.jianshu.com/p/3f9e3fc38eae">我的简书：Android7.0须知–应用间共享文件（FileProvider）</a></p>
-<p><a href="https://developer.android.com/preview/api-overview.html">Android N</a>已经出了好几个预览版了，正式版即将到来，为了迎接Android N的到来，我们接到任务，需要测试并解决我们的应用在7.0上面的适配问题和其他bug 。</p>
-<p>测试的时候，发现了一些bug，其中一个bug，就是在打开相册编辑页时，程序会异常退出。</p>
-<p>经过排查，发现应用崩溃前，报出FileUriExposedException异常，官网上搜索，发现在Android N的<a href="https://developer.android.com/preview/behavior-changes.html">behavior-changes</a>里面，有一些关于 FileUriExposedException 异常的描述：</p>
-<ul>
-<li>对于面向 Android N 的应用，Android 框架执行的 <a href="https://developer.android.com/reference/android/os/StrictMode.html">StrictMode</a>，API 禁止向您的应用外公开 file://URI。<br>如果一项包含文件 URI 的 Intent 离开您的应用，应用失败，并出现 FileUriExposedException异常。</li>
-</ul>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-N/">Android N</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FileProvider/">FileProvider</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/09/09/Android7.0须知--应用间共享文件/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-面试总结-Java基础(一)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -535,6 +461,80 @@
       
         <p class="article-more-link">
           <a href="/2016/09/09/面试总结-Java基础(一)/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Android7.0须知--应用间共享文件" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/09/Android7.0须知--应用间共享文件/" class="article-date">
+      <time datetime="2016-09-09T03:46:56.000Z" itemprop="datePublished">2016-09-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/09/Android7.0须知--应用间共享文件/">Android7.0须知--应用间共享文件（FileProvider）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="关于Android-N"><a href="#关于Android-N" class="headerlink" title="关于Android N"></a>关于Android N</h2><p><a href="http://www.jianshu.com/p/3f9e3fc38eae">我的简书：Android7.0须知–应用间共享文件（FileProvider）</a></p>
+<p><a href="https://developer.android.com/preview/api-overview.html">Android N</a>已经出了好几个预览版了，正式版即将到来，为了迎接Android N的到来，我们接到任务，需要测试并解决我们的应用在7.0上面的适配问题和其他bug 。</p>
+<p>测试的时候，发现了一些bug，其中一个bug，就是在打开相册编辑页时，程序会异常退出。</p>
+<p>经过排查，发现应用崩溃前，报出FileUriExposedException异常，官网上搜索，发现在Android N的<a href="https://developer.android.com/preview/behavior-changes.html">behavior-changes</a>里面，有一些关于 FileUriExposedException 异常的描述：</p>
+<ul>
+<li>对于面向 Android N 的应用，Android 框架执行的 <a href="https://developer.android.com/reference/android/os/StrictMode.html">StrictMode</a>，API 禁止向您的应用外公开 file://URI。<br>如果一项包含文件 URI 的 Intent 离开您的应用，应用失败，并出现 FileUriExposedException异常。</li>
+</ul>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-N/">Android N</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FileProvider/">FileProvider</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2016/09/09/Android7.0须知--应用间共享文件/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
